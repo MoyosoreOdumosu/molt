@@ -35,7 +35,7 @@ source "qemu" "ubuntu" {
   boot_key_interval = "500ms"
   qemuargs = [
     ["-serial", "file:serial.log"],
-    ["-display", "cocoa"]
+    ["-display", var.qemu_display]
   ]
 
   # GRUB command-line boot: no menu editing, so no dependency on down/end timing.

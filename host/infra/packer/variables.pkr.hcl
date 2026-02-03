@@ -4,6 +4,12 @@ variable "accelerator" {
   # hvf = macOS Hypervisor.framework; kvm = Linux KVM; none = software emulation
 }
 
+variable "qemu_display" {
+  type    = string
+  default = "cocoa"
+  # cocoa = macOS; none = Linux headless (CI)
+}
+
 variable "ubuntu_version" {
   type    = string
   default = "22.04"
