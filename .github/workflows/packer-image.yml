@@ -37,8 +37,9 @@ jobs:
           PACKER_LOG_PATH: packer-debug.log
         run: |
           packer init -upgrade .
+          # accelerator=none: GitHub runners have no KVM; use software emulation (slower but works)
           packer build -force \
-            -var "accelerator=kvm" \
+            -var "accelerator=none" \
             -var "moltbot_binary=../../releases/moltbot-host" \
             -var "moltbot_config=../../config.packer.json" \
             -var "release_manifest=../../releases/latest.json" \
