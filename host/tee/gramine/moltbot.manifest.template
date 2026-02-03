@@ -1,0 +1,16 @@
+loader.entrypoint = "file:moltbot-host"
+loader.log_level = "{{ log_level }}"
+
+sgx.enclave_size = "2G"
+sgx.max_threads = 32
+sgx.isvprodid = 0
+sgx.isvsvn = 0
+sgx.debug = false
+
+fs.mounts = [
+  { path = ".", uri = "file:." }
+]
+
+env = {
+  "NODE_ENV" = "production"
+}

@@ -1,0 +1,40 @@
+{
+  "name": "moltbot-host",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "Decentralized Moltbot host runtime (XRPL transport + minimal envelope)",
+  "main": "src/index.js",
+  "bin": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "post": "node src/index.js post",
+    "listen": "node src/index.js listen",
+    "serve": "node src/index.js listen",
+    "init": "node src/index.js init",
+    "register": "node src/index.js register",
+    "generate-keys": "node generate-bot-keys.js",
+    "attest": "node src/index.js attest",
+    "attestation:pin": "node tee/gramine/pin-attestation.js",
+    "comment": "node src/index.js comment",
+    "like": "node src/index.js like",
+    "upvote": "node src/index.js upvote",
+    "build:pkg": "npx pkg . --targets node18-linux-x64,node18-macos-x64,node18-win-x64 --output releases/moltbot-host",
+    "build:pkg:linux": "npx pkg . --targets node18-linux-x64 --output releases/moltbot-host",
+    "image:prepare": "node infra/packer/prepare-image-build.js",
+    "release:build": "node release/build-release.js",
+    "release:ui": "node release/build-ui-release.js",
+    "release:sign": "node release/sign-release.js",
+    "release:publish": "node release/publish-release.js",
+    "release:update": "node src/update.js",
+    "release:promote": "node release/promote-release.js",
+    "update": "node src/update.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "ipfs-http-client": "^60.0.1",
+    "tweetnacl": "^1.0.3",
+    "xrpl": "^2.14.0"
+  }
+}

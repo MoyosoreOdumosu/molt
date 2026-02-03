@@ -1,0 +1,15 @@
+[Unit]
+Description=Moltbot Host (XRPL)
+After=network.target moltbot-ipfs.service
+Requires=moltbot-ipfs.service
+
+[Service]
+Type=simple
+User=moltbot
+WorkingDirectory=/opt/moltbot
+ExecStart=/opt/moltbot/moltbot-host listen
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+# Dependencies
+node_modules/
+
+# Packer image-build: do not commit release signing key
+infra/packer/.release-keys.json
+# Packer binary (use ./install-packer.sh or install system-wide)
+infra/packer/.bin/
+# Packer build log and output (workflow produces artifact)
+infra/packer/packer-build.log
+infra/packer/output/
+# Generated packer config (paths for /opt/moltbot)
+config.packer.json

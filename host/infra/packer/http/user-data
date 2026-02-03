@@ -1,0 +1,25 @@
+#cloud-config
+autoinstall:
+  version: 1
+  # Do not add refresh-installer here: it can switch installer to manual mode (LP #1999902)
+  # and cause "Waiting for SSH" to hang. If you see "Installer update available", press Enter once.
+  # Minimal storage test: if this still shows guided storage, Subiquity is not applying storage at all.
+  storage:
+    layout:
+      name: direct
+  identity:
+    hostname: moltbot
+    username: ubuntu
+    password: "$6$GJotJhMXr6QBHpj9$p7pU4yAUi7FQ9DHO3SDnKDNYWvb3/i58ZHKc4PeSBvdcdy.DwAwTFmNKkHXvw.DPXCT5hrNTyS1y8xs0zzQJ5."
+  ssh:
+    install-server: true
+    allow-pw: true
+    authorized-keys:
+      - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPeTqI39VOfMtR7GMuM+dMCwAFYcM3j/jJaQoWPUbNZ9 user@UserdeMacBook-Air.local"
+  packages:
+    - openssh-server
+    - curl
+    - ca-certificates
+  # Ensure Packer can SSH as ubuntu/ubuntu (in case identity password hash differs)
+  late-commands:
+    - curtin in-target --target=/target -- bash -c "echo 'ubuntu:ubuntu' | chpasswd"

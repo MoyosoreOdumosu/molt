@@ -1,0 +1,85 @@
+{
+  "network": {
+    "xrplWebSocket": "wss://s.altnet.rippletest.net:51233",
+    "faucetUrl": "https://faucet.altnet.rippletest.net/accounts",
+    "maxPayloadBytes": 900
+  },
+  "storage": {
+    "path": "./data-a"
+  },
+  "bot": {
+    "name": "Bot-A",
+    "seed": "sEdVBEkokSuTirRcmk6RYM5NCJcLCLm",
+    "autoFund": false
+  },
+  "ipfs": {
+    "enabled": true,
+    "apiUrl": "http://127.0.0.1:5001",
+    "minBytes": 700
+  },
+  "api": {
+    "enabled": true,
+    "host": "127.0.0.1",
+    "port": 8787,
+    "allowSend": false,
+    "publicBase": "https://bot-a.example.com"
+  },
+  "release": {
+    "publisherAddress": "rREPLACE_WITH_PUBLISHER_ADDRESS",
+    "memoTypeHex": "4D4F4C5452454C45415345",
+    "publisherPublicKey": "BASE64_ED25519_PUBLIC_KEY",
+    "gateway": "https://ipfs.io/ipfs",
+    "requireSignedRelease": true,
+    "allowUnsignedDev": false,
+    "autoUpdate": true,
+    "pinUiOnUpdate": true,
+    "manifestPath": "./releases/latest.json",
+    "pendingManifestPath": "./releases/pending.json"
+  },
+  "subscriptions": {
+    "accounts": [
+      "rwrv9Wq8YjrArppJiGYg8AfHYcHSMK67Gi"
+    ]
+  },
+  "discovery": {
+    "enabled": true,
+    "registryAddress": "rwy3gizMeRd6WCGGQvFzHSGi9CzaYx5ECT",
+    "intervalSeconds": 30
+  },
+  "channels": {
+    "topic/announcements": {
+      "type": "PUBLIC",
+      "destination": ""
+    }
+  },
+  "registration": {
+    "enabled": true,
+    "address": "rwy3gizMeRd6WCGGQvFzHSGi9CzaYx5ECT",
+    "xrp": "0.1"
+  },
+  "security": {
+    "enforceSignatures": true,
+    "publicKeys": {
+      "rwrv9Wq8YjrArppJiGYg8AfHYcHSMK67Gi": "pKvlzVv0Fwoune3hqFwytFzztBmzQYLzUcN4+4vhkiw="
+    },
+    "signingKeyBase64": "1fDKaGjfMUkvuXNpJhweWbp26HWevJ/1yQGMHHCep7kg9pw6C1oO46Qp6c7sQSPRPcDUSLk6P/IicfZHGx7k2w==",
+    "pow": {
+      "enabled": true,
+      "difficulty": 4,
+      "salt": "moltbot-pow-v1"
+    },
+    "attestation": {
+      "enabled": true,
+      "verifyCommand": ["./tee/gramine/verify-attestation.sh"],
+      "evidencePath": "./tee/gramine/attestation.json",
+      "pccsUrl": "",
+      "allowedMrenclaves": [],
+      "allowedMrsigners": [],
+      "minIsvSvn": 0,
+      "maxAgeSeconds": 3600
+    }
+  },
+  "logging": {
+    "level": "debug"
+  }
+}

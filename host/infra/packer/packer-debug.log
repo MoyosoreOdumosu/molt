@@ -1,0 +1,415 @@
+2026/02/02 09:41:26 [INFO] Packer version: 1.11.2 [go1.21.12 darwin amd64]
+2026/02/02 09:41:26 Old default config directory found: /Users/user/.packer.d
+2026/02/02 09:41:26 [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2026/02/02 09:41:26 [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/user/.packerconfig
+2026/02/02 09:41:26 [WARN] Config file doesn't exist: /Users/user/.packerconfig
+2026/02/02 09:41:26 Old default config directory found: /Users/user/.packer.d
+2026/02/02 09:41:26 [INFO] Setting cache directory: /Users/user/.cache/packer
+2026/02/02 09:41:26 Old default config directory found: /Users/user/.packer.d
+2026/02/02 09:41:26 [TRACE] listing potential installations for "github.com/hashicorp/qemu" that match ">= 1.0.0". plugingetter.ListInstallationsOptions{PluginDirectory:"/Users/user/.packer.d/plugins", BinaryInstallationOptions:plugingetter.BinaryInstallationOptions{APIVersionMajor:"5", APIVersionMinor:"0", OS:"darwin", ARCH:"amd64", Ext:"", Checksummers:[]plugingetter.Checksummer{plugingetter.Checksummer{Type:"sha256", Hash:(*sha256.digest)(0xc0002b8000)}}, ReleasesOnly:false}}
+2026/02/02 09:41:26 [TRACE] GetChecksumOfFile("/Users/user/.packer.d/plugins/github.com/hashicorp/qemu/1.1.4/darwin_amd64/packer-plugin-qemu_v1.1.4_x5.0_darwin_amd64") failed: open /Users/user/.packer.d/plugins/github.com/hashicorp/qemu/1.1.4/darwin_amd64/packer-plugin-qemu_v1.1.4_x5.0_darwin_amd64_SHA256SUM: no such file or directory
+2026/02/02 09:41:26 [TRACE] No checksum found for "/Users/user/.packer.d/plugins/github.com/hashicorp/qemu/1.1.4/darwin_amd64/packer-plugin-qemu_v1.1.4_x5.0_darwin_amd64" ignoring possibly unsafe binary
+2026/02/02 09:41:26 [TRACE] Found the following "github.com/hashicorp/qemu" installations: [{/Users/user/.packer.d/plugins/github.com/hashicorp/qemu/packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 v1.1.3 x5.0}]
+2026/02/02 09:41:26 [INFO] found external [-packer-default-plugin-name-] builders from qemu plugin
+2026/02/02 09:41:26 [TRACE] listing potential installations for <nil> that match "". plugingetter.ListInstallationsOptions{PluginDirectory:"/Users/user/.packer.d/plugins", BinaryInstallationOptions:plugingetter.BinaryInstallationOptions{APIVersionMajor:"5", APIVersionMinor:"0", OS:"darwin", ARCH:"amd64", Ext:"", Checksummers:[]plugingetter.Checksummer{plugingetter.Checksummer{Type:"sha256", Hash:(*sha256.digest)(0xc000298000)}}, ReleasesOnly:false}}
+2026/02/02 09:41:26 [TRACE] GetChecksumOfFile("/Users/user/.packer.d/plugins/github.com/hashicorp/qemu/1.1.4/darwin_amd64/packer-plugin-qemu_v1.1.4_x5.0_darwin_amd64") failed: open /Users/user/.packer.d/plugins/github.com/hashicorp/qemu/1.1.4/darwin_amd64/packer-plugin-qemu_v1.1.4_x5.0_darwin_amd64_SHA256SUM: no such file or directory
+2026/02/02 09:41:26 [TRACE] No checksum found for "/Users/user/.packer.d/plugins/github.com/hashicorp/qemu/1.1.4/darwin_amd64/packer-plugin-qemu_v1.1.4_x5.0_darwin_amd64" ignoring possibly unsafe binary
+2026/02/02 09:41:26 [INFO] found external [-packer-default-plugin-name-] builders from qemu plugin
+2026/02/02 09:41:26 [TRACE] validateValue: not active for moltbot_binary, so skipping
+2026/02/02 09:41:26 [TRACE] validateValue: not active for moltbot_config, so skipping
+2026/02/02 09:41:26 [TRACE] validateValue: not active for release_manifest, so skipping
+2026/02/02 09:41:26 [TRACE] validateValue: not active for ubuntu_version, so skipping
+2026/02/02 09:41:26 [TRACE] validateValue: not active for ubuntu_iso_url, so skipping
+2026/02/02 09:41:26 [TRACE] validateValue: not active for ubuntu_iso_checksum, so skipping
+2026/02/02 09:41:26 [TRACE] validateValue: not active for moltbot_user, so skipping
+2026/02/02 09:41:26 [TRACE] validateValue: not active for install_dir, so skipping
+2026/02/02 09:41:26 [INFO] Starting external plugin /Users/user/.packer.d/plugins/github.com/hashicorp/qemu/packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 start builder -packer-default-plugin-name-
+2026/02/02 09:41:26 Starting plugin: /Users/user/.packer.d/plugins/github.com/hashicorp/qemu/packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 []string{"/Users/user/.packer.d/plugins/github.com/hashicorp/qemu/packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64", "start", "builder", "-packer-default-plugin-name-"}
+2026/02/02 09:41:26 Waiting for RPC address for: /Users/user/.packer.d/plugins/github.com/hashicorp/qemu/packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64
+2026/02/02 09:41:26 Received unix RPC address for /Users/user/.packer.d/plugins/github.com/hashicorp/qemu/packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64: addr is /var/folders/_t/m17x225s2fz6syzf0x7rjj4m0000gn/T/packer-plugin3715475679
+2026/02/02 09:41:26 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:26 Plugin address: unix /var/folders/_t/m17x225s2fz6syzf0x7rjj4m0000gn/T/packer-plugin3715475679
+2026/02/02 09:41:26 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:26 Waiting for connection...
+2026/02/02 09:41:26 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:26 Serving a plugin connection...
+2026/02/02 09:41:26 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:26 [TRACE] starting builder -packer-default-plugin-name-
+2026/02/02 09:41:26 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:26 [DEBUG] - common: sending ConfigSpec as gob
+2026/02/02 09:41:26 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:26 use specified accelerator: hvf
+2026/02/02 09:41:26 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:26 [DEBUG] - common: sending ConfigSpec as gob
+2026/02/02 09:41:26 [INFO] Starting internal plugin packer-provisioner-shell
+2026/02/02 09:41:26 Starting plugin: /Users/user/Desktop/molt/host/infra/packer/.bin/packer []string{"/Users/user/Desktop/molt/host/infra/packer/.bin/packer", "execute", "packer-provisioner-shell"}
+2026/02/02 09:41:26 Waiting for RPC address for: /Users/user/Desktop/molt/host/infra/packer/.bin/packer
+2026/02/02 09:41:26 packer-provisioner-shell plugin: [INFO] Packer version: 1.11.2 [go1.21.12 darwin amd64]
+2026/02/02 09:41:26 packer-provisioner-shell plugin: Old default config directory found: /Users/user/.packer.d
+2026/02/02 09:41:26 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2026/02/02 09:41:26 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/user/.packerconfig
+2026/02/02 09:41:26 packer-provisioner-shell plugin: [WARN] Config file doesn't exist: /Users/user/.packerconfig
+2026/02/02 09:41:26 packer-provisioner-shell plugin: Old default config directory found: /Users/user/.packer.d
+2026/02/02 09:41:26 packer-provisioner-shell plugin: [INFO] Setting cache directory: /Users/user/.cache/packer
+2026/02/02 09:41:26 packer-provisioner-shell plugin: args: []string{"packer-provisioner-shell"}
+2026/02/02 09:41:26 packer-provisioner-shell plugin: Old default config directory found: /Users/user/.packer.d
+2026/02/02 09:41:26 packer-provisioner-shell plugin: Plugin address: unix /var/folders/_t/m17x225s2fz6syzf0x7rjj4m0000gn/T/packer-plugin1394882118
+2026/02/02 09:41:26 packer-provisioner-shell plugin: Waiting for connection...
+2026/02/02 09:41:26 Received unix RPC address for /Users/user/Desktop/molt/host/infra/packer/.bin/packer: addr is /var/folders/_t/m17x225s2fz6syzf0x7rjj4m0000gn/T/packer-plugin1394882118
+2026/02/02 09:41:26 packer-provisioner-shell plugin: Serving a plugin connection...
+2026/02/02 09:41:26 [INFO] Starting internal plugin packer-provisioner-file
+2026/02/02 09:41:26 Starting plugin: /Users/user/Desktop/molt/host/infra/packer/.bin/packer []string{"/Users/user/Desktop/molt/host/infra/packer/.bin/packer", "execute", "packer-provisioner-file"}
+2026/02/02 09:41:26 Waiting for RPC address for: /Users/user/Desktop/molt/host/infra/packer/.bin/packer
+2026/02/02 09:41:26 packer-provisioner-file plugin: [INFO] Packer version: 1.11.2 [go1.21.12 darwin amd64]
+2026/02/02 09:41:26 packer-provisioner-file plugin: Old default config directory found: /Users/user/.packer.d
+2026/02/02 09:41:26 packer-provisioner-file plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2026/02/02 09:41:26 packer-provisioner-file plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/user/.packerconfig
+2026/02/02 09:41:26 packer-provisioner-file plugin: [WARN] Config file doesn't exist: /Users/user/.packerconfig
+2026/02/02 09:41:26 packer-provisioner-file plugin: Old default config directory found: /Users/user/.packer.d
+2026/02/02 09:41:26 packer-provisioner-file plugin: [INFO] Setting cache directory: /Users/user/.cache/packer
+2026/02/02 09:41:26 packer-provisioner-file plugin: Old default config directory found: /Users/user/.packer.d
+2026/02/02 09:41:26 packer-provisioner-file plugin: args: []string{"packer-provisioner-file"}
+2026/02/02 09:41:26 packer-provisioner-file plugin: Plugin address: unix /var/folders/_t/m17x225s2fz6syzf0x7rjj4m0000gn/T/packer-plugin199399455
+2026/02/02 09:41:26 packer-provisioner-file plugin: Waiting for connection...
+2026/02/02 09:41:26 Received unix RPC address for /Users/user/Desktop/molt/host/infra/packer/.bin/packer: addr is /var/folders/_t/m17x225s2fz6syzf0x7rjj4m0000gn/T/packer-plugin199399455
+2026/02/02 09:41:26 packer-provisioner-file plugin: Serving a plugin connection...
+2026/02/02 09:41:26 [INFO] Starting internal plugin packer-provisioner-file
+2026/02/02 09:41:26 Starting plugin: /Users/user/Desktop/molt/host/infra/packer/.bin/packer []string{"/Users/user/Desktop/molt/host/infra/packer/.bin/packer", "execute", "packer-provisioner-file"}
+2026/02/02 09:41:26 Waiting for RPC address for: /Users/user/Desktop/molt/host/infra/packer/.bin/packer
+2026/02/02 09:41:27 packer-provisioner-file plugin: [INFO] Packer version: 1.11.2 [go1.21.12 darwin amd64]
+2026/02/02 09:41:27 packer-provisioner-file plugin: Old default config directory found: /Users/user/.packer.d
+2026/02/02 09:41:27 packer-provisioner-file plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2026/02/02 09:41:27 packer-provisioner-file plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/user/.packerconfig
+2026/02/02 09:41:27 packer-provisioner-file plugin: [WARN] Config file doesn't exist: /Users/user/.packerconfig
+2026/02/02 09:41:27 packer-provisioner-file plugin: Old default config directory found: /Users/user/.packer.d
+2026/02/02 09:41:27 packer-provisioner-file plugin: [INFO] Setting cache directory: /Users/user/.cache/packer
+2026/02/02 09:41:27 packer-provisioner-file plugin: args: []string{"packer-provisioner-file"}
+2026/02/02 09:41:27 packer-provisioner-file plugin: Old default config directory found: /Users/user/.packer.d
+2026/02/02 09:41:27 packer-provisioner-file plugin: Plugin address: unix /var/folders/_t/m17x225s2fz6syzf0x7rjj4m0000gn/T/packer-plugin1646599170
+2026/02/02 09:41:27 packer-provisioner-file plugin: Waiting for connection...
+2026/02/02 09:41:27 Received unix RPC address for /Users/user/Desktop/molt/host/infra/packer/.bin/packer: addr is /var/folders/_t/m17x225s2fz6syzf0x7rjj4m0000gn/T/packer-plugin1646599170
+2026/02/02 09:41:27 packer-provisioner-file plugin: Serving a plugin connection...
+2026/02/02 09:41:27 [INFO] Starting internal plugin packer-provisioner-file
+2026/02/02 09:41:27 Starting plugin: /Users/user/Desktop/molt/host/infra/packer/.bin/packer []string{"/Users/user/Desktop/molt/host/infra/packer/.bin/packer", "execute", "packer-provisioner-file"}
+2026/02/02 09:41:27 Waiting for RPC address for: /Users/user/Desktop/molt/host/infra/packer/.bin/packer
+2026/02/02 09:41:27 packer-provisioner-file plugin: [INFO] Packer version: 1.11.2 [go1.21.12 darwin amd64]
+2026/02/02 09:41:27 packer-provisioner-file plugin: Old default config directory found: /Users/user/.packer.d
+2026/02/02 09:41:27 packer-provisioner-file plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2026/02/02 09:41:27 packer-provisioner-file plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/user/.packerconfig
+2026/02/02 09:41:27 packer-provisioner-file plugin: [WARN] Config file doesn't exist: /Users/user/.packerconfig
+2026/02/02 09:41:27 packer-provisioner-file plugin: Old default config directory found: /Users/user/.packer.d
+2026/02/02 09:41:27 packer-provisioner-file plugin: [INFO] Setting cache directory: /Users/user/.cache/packer
+2026/02/02 09:41:27 packer-provisioner-file plugin: args: []string{"packer-provisioner-file"}
+2026/02/02 09:41:27 packer-provisioner-file plugin: Old default config directory found: /Users/user/.packer.d
+2026/02/02 09:41:27 packer-provisioner-file plugin: Plugin address: unix /var/folders/_t/m17x225s2fz6syzf0x7rjj4m0000gn/T/packer-plugin16563045
+2026/02/02 09:41:27 packer-provisioner-file plugin: Waiting for connection...
+2026/02/02 09:41:27 Received unix RPC address for /Users/user/Desktop/molt/host/infra/packer/.bin/packer: addr is /var/folders/_t/m17x225s2fz6syzf0x7rjj4m0000gn/T/packer-plugin16563045
+2026/02/02 09:41:27 packer-provisioner-file plugin: Serving a plugin connection...
+2026/02/02 09:41:27 [INFO] Starting internal plugin packer-provisioner-file
+2026/02/02 09:41:27 Starting plugin: /Users/user/Desktop/molt/host/infra/packer/.bin/packer []string{"/Users/user/Desktop/molt/host/infra/packer/.bin/packer", "execute", "packer-provisioner-file"}
+2026/02/02 09:41:27 Waiting for RPC address for: /Users/user/Desktop/molt/host/infra/packer/.bin/packer
+2026/02/02 09:41:27 packer-provisioner-file plugin: [INFO] Packer version: 1.11.2 [go1.21.12 darwin amd64]
+2026/02/02 09:41:27 packer-provisioner-file plugin: Old default config directory found: /Users/user/.packer.d
+2026/02/02 09:41:27 packer-provisioner-file plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2026/02/02 09:41:27 packer-provisioner-file plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/user/.packerconfig
+2026/02/02 09:41:27 packer-provisioner-file plugin: [WARN] Config file doesn't exist: /Users/user/.packerconfig
+2026/02/02 09:41:27 packer-provisioner-file plugin: Old default config directory found: /Users/user/.packer.d
+2026/02/02 09:41:27 packer-provisioner-file plugin: [INFO] Setting cache directory: /Users/user/.cache/packer
+2026/02/02 09:41:27 packer-provisioner-file plugin: args: []string{"packer-provisioner-file"}
+2026/02/02 09:41:27 packer-provisioner-file plugin: Old default config directory found: /Users/user/.packer.d
+2026/02/02 09:41:27 Received unix RPC address for /Users/user/Desktop/molt/host/infra/packer/.bin/packer: addr is /var/folders/_t/m17x225s2fz6syzf0x7rjj4m0000gn/T/packer-plugin1639634030
+2026/02/02 09:41:27 packer-provisioner-file plugin: Plugin address: unix /var/folders/_t/m17x225s2fz6syzf0x7rjj4m0000gn/T/packer-plugin1639634030
+2026/02/02 09:41:27 packer-provisioner-file plugin: Waiting for connection...
+2026/02/02 09:41:27 packer-provisioner-file plugin: Serving a plugin connection...
+2026/02/02 09:41:27 [INFO] Starting internal plugin packer-provisioner-file
+2026/02/02 09:41:27 Starting plugin: /Users/user/Desktop/molt/host/infra/packer/.bin/packer []string{"/Users/user/Desktop/molt/host/infra/packer/.bin/packer", "execute", "packer-provisioner-file"}
+2026/02/02 09:41:27 Waiting for RPC address for: /Users/user/Desktop/molt/host/infra/packer/.bin/packer
+2026/02/02 09:41:27 packer-provisioner-file plugin: [INFO] Packer version: 1.11.2 [go1.21.12 darwin amd64]
+2026/02/02 09:41:27 packer-provisioner-file plugin: Old default config directory found: /Users/user/.packer.d
+2026/02/02 09:41:27 packer-provisioner-file plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2026/02/02 09:41:27 packer-provisioner-file plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/user/.packerconfig
+2026/02/02 09:41:27 packer-provisioner-file plugin: [WARN] Config file doesn't exist: /Users/user/.packerconfig
+2026/02/02 09:41:27 packer-provisioner-file plugin: Old default config directory found: /Users/user/.packer.d
+2026/02/02 09:41:27 packer-provisioner-file plugin: [INFO] Setting cache directory: /Users/user/.cache/packer
+2026/02/02 09:41:27 packer-provisioner-file plugin: Old default config directory found: /Users/user/.packer.d
+2026/02/02 09:41:27 packer-provisioner-file plugin: args: []string{"packer-provisioner-file"}
+2026/02/02 09:41:27 packer-provisioner-file plugin: Plugin address: unix /var/folders/_t/m17x225s2fz6syzf0x7rjj4m0000gn/T/packer-plugin1499880769
+2026/02/02 09:41:27 packer-provisioner-file plugin: Waiting for connection...
+2026/02/02 09:41:27 Received unix RPC address for /Users/user/Desktop/molt/host/infra/packer/.bin/packer: addr is /var/folders/_t/m17x225s2fz6syzf0x7rjj4m0000gn/T/packer-plugin1499880769
+2026/02/02 09:41:27 packer-provisioner-file plugin: Serving a plugin connection...
+2026/02/02 09:41:27 ui: [1;32mqemu.ubuntu: output will be in this color.[0m
+2026/02/02 09:41:27 ui: 
+2026/02/02 09:41:27 Build debug mode: false
+2026/02/02 09:41:27 Force build: true
+2026/02/02 09:41:27 On error: 
+2026/02/02 09:41:27 Waiting on builds to complete...
+2026/02/02 09:41:27 Starting build run: qemu.ubuntu
+2026/02/02 09:41:27 Running builder: qemu
+2026/02/02 09:41:27 [INFO] (telemetry) Starting builder qemu.ubuntu
+2026/02/02 09:41:27 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:27 Qemu path: /usr/local/bin/qemu-system-x86_64, Qemu Image path: /usr/local/bin/qemu-img
+2026/02/02 09:41:27 ui: [1;32m==> qemu.ubuntu: Retrieving ISO[0m
+2026/02/02 09:41:27 ui: [1;32m==> qemu.ubuntu: Trying https://releases.ubuntu.com/22.04/ubuntu-22.04.5-live-server-amd64.iso[0m
+2026/02/02 09:41:27 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:27 Acquiring lock for: https://releases.ubuntu.com/22.04/ubuntu-22.04.5-live-server-amd64.iso?checksum=sha256%3A9bc6028870aef3f74f4e16b900008179e78b130e6b0b9a140635434a46aa98b0 (/Users/user/.cache/packer/c968bbbeb22702b3f10a07276c8ca06720e80c4c.iso.lock)
+2026/02/02 09:41:27 ui: [1;32m==> qemu.ubuntu: Trying https://releases.ubuntu.com/22.04/ubuntu-22.04.5-live-server-amd64.iso?checksum=sha256%3A9bc6028870aef3f74f4e16b900008179e78b130e6b0b9a140635434a46aa98b0[0m
+2026/02/02 09:41:38 ui: [1;32m==> qemu.ubuntu: https://releases.ubuntu.com/22.04/ubuntu-22.04.5-live-server-amd64.iso?checksum=sha256%3A9bc6028870aef3f74f4e16b900008179e78b130e6b0b9a140635434a46aa98b0 => /Users/user/.cache/packer/c968bbbeb22702b3f10a07276c8ca06720e80c4c.iso[0m
+2026/02/02 09:41:38 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:38 Leaving retrieve loop for ISO
+2026/02/02 09:41:38 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:38 No floppy files specified. Floppy disk will not be made.
+2026/02/02 09:41:38 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:38 No CD files specified. CD disk will not be made.
+2026/02/02 09:41:38 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:38 [INFO] Creating disk with Path: output/moltbot-ubuntu-22.04/packer-ubuntu and Size: 20000M
+2026/02/02 09:41:38 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:38 Executing qemu-img: []string{"create", "-f", "qcow2", "output/moltbot-ubuntu-22.04/packer-ubuntu", "20000M"}
+2026/02/02 09:41:38 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:38 stdout: Formatting 'output/moltbot-ubuntu-22.04/packer-ubuntu', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=20971520000 lazy_refcounts=off refcount_bits=16
+2026/02/02 09:41:38 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:38 stderr:
+2026/02/02 09:41:38 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:38 Found available port: 8075 on IP: 0.0.0.0
+2026/02/02 09:41:38 ui: [1;32m==> qemu.ubuntu: Starting HTTP server on port 8075[0m
+2026/02/02 09:41:38 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:38 Looking for available communicator (SSH, WinRM, etc) port between 2222 and 4444
+2026/02/02 09:41:38 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:38 Found available port: 2850 on IP: 127.0.0.1
+2026/02/02 09:41:38 ui: [1;32m==> qemu.ubuntu: Found port for communicator (SSH, WinRM, etc): 2850.[0m
+2026/02/02 09:41:38 ui: [1;32m==> qemu.ubuntu: Using existing SSH private key[0m
+2026/02/02 09:41:38 ui: [1;32m==> qemu.ubuntu: Looking for available port between 5900 and 6000 on 127.0.0.1[0m
+2026/02/02 09:41:38 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:38 Looking for available port between 5900 and 6000 on 127.0.0.1
+2026/02/02 09:41:38 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:38 Found available port: 5996 on IP: 127.0.0.1
+2026/02/02 09:41:38 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:38 Found available VNC port: 5996 on IP: 127.0.0.1
+2026/02/02 09:41:38 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:38 Qemu --version output: QEMU emulator version 8.1.2
+2026/02/02 09:41:38 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: Copyright (c) 2003-2023 Fabrice Bellard and the QEMU Project developers
+2026/02/02 09:41:38 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:38 Qemu version: 8.1.2
+2026/02/02 09:41:38 ui: [1;32m==> qemu.ubuntu: Starting VM, booting from CD-ROM[0m
+2026/02/02 09:41:38 ui: [0;32m    qemu.ubuntu: The VM will be run headless, without a GUI. If you want to
+    qemu.ubuntu: view the screen of the VM, connect via VNC without a password to
+    qemu.ubuntu: vnc://127.0.0.1:5996[0m
+2026/02/02 09:41:38 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:38 Qemu Builder has no floppy files, not attaching a floppy.
+2026/02/02 09:41:38 ui: [1;32m==> qemu.ubuntu: Overriding default Qemu arguments with qemuargs template option...[0m
+2026/02/02 09:41:38 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:38 Executing /usr/local/bin/qemu-system-x86_64: []string{"-vnc", "127.0.0.1:96", "-boot", "once=d", "-m", "2048M", "-device", "virtio-net,netdev=user.0", "-name", "packer-ubuntu", "-netdev", "user,id=user.0,hostfwd=tcp::2850-:22", "-drive", "file=output/moltbot-ubuntu-22.04/packer-ubuntu,if=virtio,cache=writeback,discard=ignore,format=qcow2", "-drive", "file=/Users/user/.cache/packer/c968bbbeb22702b3f10a07276c8ca06720e80c4c.iso,media=cdrom", "-machine", "type=pc,accel=hvf", "-smp", "2", "-serial", "file:serial.log", "-display", "cocoa"}
+2026/02/02 09:41:38 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:38 Started Qemu. Pid: 7236
+2026/02/02 09:41:38 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:38 Qemu stderr: qemu-system-x86_64: warning: host doesn't support requested feature: CPUID.80000001H:ECX.svm [bit 2]
+2026/02/02 09:41:38 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:41:38 Qemu stderr: qemu-system-x86_64: warning: host doesn't support requested feature: CPUID.80000001H:ECX.svm [bit 2]
+2026/02/02 09:41:40 ui: [1;32m==> qemu.ubuntu: Waiting 45s for boot...[0m
+2026/02/02 09:42:25 ui: [1;32m==> qemu.ubuntu: Connecting to VM via VNC (127.0.0.1:5996)[0m
+2026/02/02 09:42:25 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:25 Connected to VNC desktop: QEMU (packer-ubuntu)
+2026/02/02 09:42:25 ui: [1;32m==> qemu.ubuntu: Typing the boot commands over VNC...[0m
+2026/02/02 09:42:25 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:25 Special code '<enter>' found, replacing with: 0xFF0D
+2026/02/02 09:42:26 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:26 [INFO] Waiting 5s
+2026/02/02 09:42:31 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:31 Sending char 'e', code 0x65, shift false
+2026/02/02 09:42:31 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:31 [INFO] Waiting 1s
+2026/02/02 09:42:32 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:32 Special code '<down>' found, replacing with: 0xFF54
+2026/02/02 09:42:32 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:32 Special code '<down>' found, replacing with: 0xFF54
+2026/02/02 09:42:33 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:33 Special code '<down>' found, replacing with: 0xFF54
+2026/02/02 09:42:33 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:33 Special code '<end>' found, replacing with: 0xFF57
+2026/02/02 09:42:34 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:34 Sending char ' ', code 0x20, shift false
+2026/02/02 09:42:34 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:34 Sending char 'a', code 0x61, shift false
+2026/02/02 09:42:34 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:34 Sending char 'u', code 0x75, shift false
+2026/02/02 09:42:35 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:35 Sending char 't', code 0x74, shift false
+2026/02/02 09:42:35 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:35 Sending char 'o', code 0x6F, shift false
+2026/02/02 09:42:36 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:36 Sending char 'i', code 0x69, shift false
+2026/02/02 09:42:36 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:36 Sending char 'n', code 0x6E, shift false
+2026/02/02 09:42:36 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:36 Sending char 's', code 0x73, shift false
+2026/02/02 09:42:37 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:37 Sending char 't', code 0x74, shift false
+2026/02/02 09:42:37 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:37 Sending char 'a', code 0x61, shift false
+2026/02/02 09:42:38 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:38 Sending char 'l', code 0x6C, shift false
+2026/02/02 09:42:38 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:38 Sending char 'l', code 0x6C, shift false
+2026/02/02 09:42:38 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:38 Sending char ' ', code 0x20, shift false
+2026/02/02 09:42:39 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:39 Sending char 'd', code 0x64, shift false
+2026/02/02 09:42:39 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:39 Sending char 's', code 0x73, shift false
+2026/02/02 09:42:40 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:40 Sending char '=', code 0x3D, shift false
+2026/02/02 09:42:40 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:40 Sending char 'n', code 0x6E, shift false
+2026/02/02 09:42:40 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:40 Sending char 'o', code 0x6F, shift false
+2026/02/02 09:42:41 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:41 Sending char 'c', code 0x63, shift false
+2026/02/02 09:42:41 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:41 Sending char 'l', code 0x6C, shift false
+2026/02/02 09:42:42 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:42 Sending char 'o', code 0x6F, shift false
+2026/02/02 09:42:42 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:42 Sending char 'u', code 0x75, shift false
+2026/02/02 09:42:42 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:42 Sending char 'd', code 0x64, shift false
+2026/02/02 09:42:43 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:43 Sending char '-', code 0x2D, shift false
+2026/02/02 09:42:43 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:43 Sending char 'n', code 0x6E, shift false
+2026/02/02 09:42:44 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:44 Sending char 'e', code 0x65, shift false
+2026/02/02 09:42:44 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:44 Sending char 't', code 0x74, shift false
+2026/02/02 09:42:44 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:44 Sending char '\', code 0x5C, shift false
+2026/02/02 09:42:45 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:45 Sending char ';', code 0x3B, shift false
+2026/02/02 09:42:45 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:45 Sending char 's', code 0x73, shift false
+2026/02/02 09:42:46 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:46 Sending char '=', code 0x3D, shift false
+2026/02/02 09:42:46 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:46 Sending char 'h', code 0x68, shift false
+2026/02/02 09:42:46 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:46 Sending char 't', code 0x74, shift false
+2026/02/02 09:42:47 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:47 Sending char 't', code 0x74, shift false
+2026/02/02 09:42:47 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:47 Sending char 'p', code 0x70, shift false
+2026/02/02 09:42:48 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:48 Sending char ':', code 0x3A, shift true
+2026/02/02 09:42:49 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:49 Sending char '/', code 0x2F, shift false
+2026/02/02 09:42:49 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:49 Sending char '/', code 0x2F, shift false
+2026/02/02 09:42:49 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:49 Sending char '1', code 0x31, shift false
+2026/02/02 09:42:50 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:50 Sending char '0', code 0x30, shift false
+2026/02/02 09:42:50 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:50 Sending char '.', code 0x2E, shift false
+2026/02/02 09:42:51 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:51 Sending char '0', code 0x30, shift false
+2026/02/02 09:42:51 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:51 Sending char '.', code 0x2E, shift false
+2026/02/02 09:42:51 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:51 Sending char '2', code 0x32, shift false
+2026/02/02 09:42:52 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:52 Sending char '.', code 0x2E, shift false
+2026/02/02 09:42:52 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:52 Sending char '2', code 0x32, shift false
+2026/02/02 09:42:53 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:53 Sending char ':', code 0x3A, shift true
+2026/02/02 09:42:53 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:53 Sending char '8', code 0x38, shift false
+2026/02/02 09:42:54 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:54 Sending char '0', code 0x30, shift false
+2026/02/02 09:42:54 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:54 Sending char '7', code 0x37, shift false
+2026/02/02 09:42:55 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:55 Sending char '5', code 0x35, shift false
+2026/02/02 09:42:55 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:55 Sending char '/', code 0x2F, shift false
+2026/02/02 09:42:55 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:55 Sending char ' ', code 0x20, shift false
+2026/02/02 09:42:56 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:56 Sending char 'i', code 0x69, shift false
+2026/02/02 09:42:56 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:56 Sending char 'p', code 0x70, shift false
+2026/02/02 09:42:57 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:57 Sending char '=', code 0x3D, shift false
+2026/02/02 09:42:57 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:57 Sending char 'd', code 0x64, shift false
+2026/02/02 09:42:57 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:57 Sending char 'h', code 0x68, shift false
+2026/02/02 09:42:58 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:58 Sending char 'c', code 0x63, shift false
+2026/02/02 09:42:58 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:58 Sending char 'p', code 0x70, shift false
+2026/02/02 09:42:59 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:59 Sending char ' ', code 0x20, shift false
+2026/02/02 09:42:59 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:59 Sending char 'c', code 0x63, shift false
+2026/02/02 09:42:59 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:42:59 Sending char 'o', code 0x6F, shift false
+2026/02/02 09:43:00 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:00 Sending char 'n', code 0x6E, shift false
+2026/02/02 09:43:00 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:00 Sending char 's', code 0x73, shift false
+2026/02/02 09:43:01 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:01 Sending char 'o', code 0x6F, shift false
+2026/02/02 09:43:01 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:01 Sending char 'l', code 0x6C, shift false
+2026/02/02 09:43:01 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:01 Sending char 'e', code 0x65, shift false
+2026/02/02 09:43:02 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:02 Sending char '=', code 0x3D, shift false
+2026/02/02 09:43:02 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:02 Sending char 't', code 0x74, shift false
+2026/02/02 09:43:03 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:03 Sending char 't', code 0x74, shift false
+2026/02/02 09:43:03 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:03 Sending char 'y', code 0x79, shift false
+2026/02/02 09:43:03 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:03 Sending char 'S', code 0x53, shift true
+2026/02/02 09:43:04 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:04 Sending char '0', code 0x30, shift false
+2026/02/02 09:43:05 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:05 Sending char ',', code 0x2C, shift false
+2026/02/02 09:43:05 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:05 Sending char '1', code 0x31, shift false
+2026/02/02 09:43:05 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:05 Sending char '1', code 0x31, shift false
+2026/02/02 09:43:06 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:06 Sending char '5', code 0x35, shift false
+2026/02/02 09:43:06 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:06 Sending char '2', code 0x32, shift false
+2026/02/02 09:43:07 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:07 Sending char '0', code 0x30, shift false
+2026/02/02 09:43:07 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:07 Sending char '0', code 0x30, shift false
+2026/02/02 09:43:08 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:08 Sending char 'n', code 0x6E, shift false
+2026/02/02 09:43:08 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:08 Sending char '8', code 0x38, shift false
+2026/02/02 09:43:08 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:08 Sending char ' ', code 0x20, shift false
+2026/02/02 09:43:09 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:09 Sending char '-', code 0x2D, shift false
+2026/02/02 09:43:09 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:09 Sending char '-', code 0x2D, shift false
+2026/02/02 09:43:10 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:10 Sending char '-', code 0x2D, shift false
+2026/02/02 09:43:10 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:10 Special code '<f10>' found, replacing with: 0xFFC7
+2026/02/02 09:43:10 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:10 [INFO] Waiting 1s
+2026/02/02 09:43:11 ui: [0;32m    qemu.ubuntu: Not using a NetBridge -- skipping StepWaitGuestAddress[0m
+2026/02/02 09:43:11 ui: [1;32m==> qemu.ubuntu: Using SSH communicator to connect: 127.0.0.1[0m
+2026/02/02 09:43:11 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:11 [INFO] Waiting for SSH, up to timeout: 45m0s
+2026/02/02 09:43:11 ui: [1;32m==> qemu.ubuntu: Waiting for SSH to become available...[0m
+2026/02/02 09:43:11 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:11 [INFO] Attempting SSH connection to 127.0.0.1:2850...
+2026/02/02 09:43:11 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:11 [DEBUG] reconnecting to TCP connection for SSH
+2026/02/02 09:43:11 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:11 [DEBUG] handshaking with SSH
+2026/02/02 09:43:11 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:11 [DEBUG] SSH handshake err: ssh: handshake failed: read tcp 127.0.0.1:49876->127.0.0.1:2850: read: connection reset by peer
+2026/02/02 09:43:18 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:18 [INFO] Attempting SSH connection to 127.0.0.1:2850...
+2026/02/02 09:43:18 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:18 [DEBUG] reconnecting to TCP connection for SSH
+2026/02/02 09:43:18 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:18 [DEBUG] handshaking with SSH
+2026/02/02 09:43:18 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:18 [DEBUG] SSH handshake err: ssh: handshake failed: read tcp 127.0.0.1:49878->127.0.0.1:2850: read: connection reset by peer
+2026/02/02 09:43:25 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:25 [INFO] Attempting SSH connection to 127.0.0.1:2850...
+2026/02/02 09:43:25 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:25 [DEBUG] reconnecting to TCP connection for SSH
+2026/02/02 09:43:25 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:25 [DEBUG] handshaking with SSH
+2026/02/02 09:43:25 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:25 [DEBUG] SSH handshake err: ssh: handshake failed: ssh: unable to authenticate, attempted methods [none publickey], no supported methods remain
+2026/02/02 09:43:25 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:25 [DEBUG] Detected authentication error. Increasing handshake attempts.
+2026/02/02 09:43:32 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:32 [INFO] Attempting SSH connection to 127.0.0.1:2850...
+2026/02/02 09:43:32 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:32 [DEBUG] reconnecting to TCP connection for SSH
+2026/02/02 09:43:32 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:32 [DEBUG] handshaking with SSH
+2026/02/02 09:43:33 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:33 [DEBUG] SSH handshake err: ssh: handshake failed: ssh: unable to authenticate, attempted methods [none publickey], no supported methods remain
+2026/02/02 09:43:33 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:33 [DEBUG] Detected authentication error. Increasing handshake attempts.
+2026/02/02 09:43:40 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:40 [INFO] Attempting SSH connection to 127.0.0.1:2850...
+2026/02/02 09:43:40 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:40 [DEBUG] reconnecting to TCP connection for SSH
+2026/02/02 09:43:40 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:40 [DEBUG] handshaking with SSH
+2026/02/02 09:43:40 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:40 [DEBUG] SSH handshake err: ssh: handshake failed: ssh: unable to authenticate, attempted methods [none publickey], no supported methods remain
+2026/02/02 09:43:40 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:40 [DEBUG] Detected authentication error. Increasing handshake attempts.
+2026/02/02 09:43:47 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:47 [INFO] Attempting SSH connection to 127.0.0.1:2850...
+2026/02/02 09:43:47 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:47 [DEBUG] reconnecting to TCP connection for SSH
+2026/02/02 09:43:47 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:47 [DEBUG] handshaking with SSH
+2026/02/02 09:43:47 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:47 [DEBUG] SSH handshake err: ssh: handshake failed: ssh: unable to authenticate, attempted methods [none publickey], no supported methods remain
+2026/02/02 09:43:47 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:47 [DEBUG] Detected authentication error. Increasing handshake attempts.
+2026/02/02 09:43:54 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:54 [INFO] Attempting SSH connection to 127.0.0.1:2850...
+2026/02/02 09:43:54 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:54 [DEBUG] reconnecting to TCP connection for SSH
+2026/02/02 09:43:54 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:54 [DEBUG] handshaking with SSH
+2026/02/02 09:43:54 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:54 [DEBUG] SSH handshake err: ssh: handshake failed: ssh: unable to authenticate, attempted methods [none publickey], no supported methods remain
+2026/02/02 09:43:54 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:43:54 [DEBUG] Detected authentication error. Increasing handshake attempts.
+2026/02/02 09:44:01 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:01 [INFO] Attempting SSH connection to 127.0.0.1:2850...
+2026/02/02 09:44:01 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:01 [DEBUG] reconnecting to TCP connection for SSH
+2026/02/02 09:44:01 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:01 [DEBUG] handshaking with SSH
+2026/02/02 09:44:02 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:02 [DEBUG] SSH handshake err: ssh: handshake failed: ssh: unable to authenticate, attempted methods [none publickey], no supported methods remain
+2026/02/02 09:44:02 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:02 [DEBUG] Detected authentication error. Increasing handshake attempts.
+2026/02/02 09:44:09 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:09 [INFO] Attempting SSH connection to 127.0.0.1:2850...
+2026/02/02 09:44:09 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:09 [DEBUG] reconnecting to TCP connection for SSH
+2026/02/02 09:44:09 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:09 [DEBUG] handshaking with SSH
+2026/02/02 09:44:09 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:09 [DEBUG] SSH handshake err: ssh: handshake failed: ssh: unable to authenticate, attempted methods [none publickey], no supported methods remain
+2026/02/02 09:44:09 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:09 [DEBUG] Detected authentication error. Increasing handshake attempts.
+2026/02/02 09:44:16 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:16 [INFO] Attempting SSH connection to 127.0.0.1:2850...
+2026/02/02 09:44:16 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:16 [DEBUG] reconnecting to TCP connection for SSH
+2026/02/02 09:44:16 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:16 [DEBUG] handshaking with SSH
+2026/02/02 09:44:16 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:16 [DEBUG] SSH handshake err: ssh: handshake failed: ssh: unable to authenticate, attempted methods [none publickey], no supported methods remain
+2026/02/02 09:44:16 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:16 [DEBUG] Detected authentication error. Increasing handshake attempts.
+2026/02/02 09:44:23 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:23 [INFO] Attempting SSH connection to 127.0.0.1:2850...
+2026/02/02 09:44:23 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:23 [DEBUG] reconnecting to TCP connection for SSH
+2026/02/02 09:44:23 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:23 [DEBUG] handshaking with SSH
+2026/02/02 09:44:24 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:24 [DEBUG] SSH handshake err: ssh: handshake failed: ssh: unable to authenticate, attempted methods [none publickey], no supported methods remain
+2026/02/02 09:44:24 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:24 [DEBUG] Detected authentication error. Increasing handshake attempts.
+2026/02/02 09:44:31 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:31 [INFO] Attempting SSH connection to 127.0.0.1:2850...
+2026/02/02 09:44:31 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:31 [DEBUG] reconnecting to TCP connection for SSH
+2026/02/02 09:44:31 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:31 [DEBUG] handshaking with SSH
+2026/02/02 09:44:31 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:31 [DEBUG] SSH handshake err: ssh: handshake failed: ssh: unable to authenticate, attempted methods [none publickey], no supported methods remain
+2026/02/02 09:44:31 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:31 [DEBUG] Detected authentication error. Increasing handshake attempts.
+2026/02/02 09:44:39 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:38 [INFO] Attempting SSH connection to 127.0.0.1:2850...
+2026/02/02 09:44:39 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:38 [DEBUG] reconnecting to TCP connection for SSH
+2026/02/02 09:44:39 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:38 [DEBUG] handshaking with SSH
+2026/02/02 09:44:39 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:39 [DEBUG] SSH handshake err: ssh: handshake failed: ssh: unable to authenticate, attempted methods [none publickey], no supported methods remain
+2026/02/02 09:44:39 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:39 [DEBUG] Detected authentication error. Increasing handshake attempts.
+2026/02/02 09:44:46 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:46 [INFO] Attempting SSH connection to 127.0.0.1:2850...
+2026/02/02 09:44:46 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:46 [DEBUG] reconnecting to TCP connection for SSH
+2026/02/02 09:44:46 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:46 [DEBUG] handshaking with SSH
+2026/02/02 09:44:47 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:47 [DEBUG] SSH handshake err: ssh: handshake failed: ssh: unable to authenticate, attempted methods [none publickey], no supported methods remain
+2026/02/02 09:44:47 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:47 [DEBUG] Detected authentication error. Increasing handshake attempts.
+2026/02/02 09:44:54 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:54 [INFO] Attempting SSH connection to 127.0.0.1:2850...
+2026/02/02 09:44:54 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:54 [DEBUG] reconnecting to TCP connection for SSH
+2026/02/02 09:44:54 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:54 [DEBUG] handshaking with SSH
+2026/02/02 09:44:54 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:54 [DEBUG] SSH handshake err: ssh: handshake failed: ssh: unable to authenticate, attempted methods [none publickey], no supported methods remain
+2026/02/02 09:44:54 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:44:54 [DEBUG] Detected authentication error. Increasing handshake attempts.
+2026/02/02 09:45:01 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:01 [INFO] Attempting SSH connection to 127.0.0.1:2850...
+2026/02/02 09:45:01 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:01 [DEBUG] reconnecting to TCP connection for SSH
+2026/02/02 09:45:01 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:01 [DEBUG] handshaking with SSH
+2026/02/02 09:45:01 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:01 [DEBUG] SSH handshake err: ssh: handshake failed: ssh: unable to authenticate, attempted methods [none publickey], no supported methods remain
+2026/02/02 09:45:01 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:01 [DEBUG] Detected authentication error. Increasing handshake attempts.
+2026/02/02 09:45:08 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:08 [INFO] Attempting SSH connection to 127.0.0.1:2850...
+2026/02/02 09:45:08 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:08 [DEBUG] reconnecting to TCP connection for SSH
+2026/02/02 09:45:08 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:08 [DEBUG] handshaking with SSH
+2026/02/02 09:45:08 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:08 [DEBUG] SSH handshake err: ssh: handshake failed: ssh: unable to authenticate, attempted methods [none publickey], no supported methods remain
+2026/02/02 09:45:08 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:08 [DEBUG] Detected authentication error. Increasing handshake attempts.
+2026/02/02 09:45:15 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:15 [INFO] Attempting SSH connection to 127.0.0.1:2850...
+2026/02/02 09:45:15 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:15 [DEBUG] reconnecting to TCP connection for SSH
+2026/02/02 09:45:15 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:15 [DEBUG] handshaking with SSH
+2026/02/02 09:45:15 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:15 [DEBUG] SSH handshake err: ssh: handshake failed: ssh: unable to authenticate, attempted methods [none publickey], no supported methods remain
+2026/02/02 09:45:15 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:15 [DEBUG] Detected authentication error. Increasing handshake attempts.
+2026/02/02 09:45:22 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:22 [INFO] Attempting SSH connection to 127.0.0.1:2850...
+2026/02/02 09:45:22 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:22 [DEBUG] reconnecting to TCP connection for SSH
+2026/02/02 09:45:22 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:22 [DEBUG] handshaking with SSH
+2026/02/02 09:45:22 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:22 [DEBUG] SSH handshake err: ssh: handshake failed: ssh: unable to authenticate, attempted methods [none publickey], no supported methods remain
+2026/02/02 09:45:22 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:22 [DEBUG] Detected authentication error. Increasing handshake attempts.
+2026/02/02 09:45:29 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:29 [INFO] Attempting SSH connection to 127.0.0.1:2850...
+2026/02/02 09:45:29 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:29 [DEBUG] reconnecting to TCP connection for SSH
+2026/02/02 09:45:29 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:29 [DEBUG] handshaking with SSH
+2026/02/02 09:45:29 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:29 [DEBUG] SSH handshake err: ssh: handshake failed: ssh: unable to authenticate, attempted methods [none publickey], no supported methods remain
+2026/02/02 09:45:29 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:29 [DEBUG] Detected authentication error. Increasing handshake attempts.
+2026/02/02 09:45:36 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:36 [INFO] Attempting SSH connection to 127.0.0.1:2850...
+2026/02/02 09:45:36 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:36 [DEBUG] reconnecting to TCP connection for SSH
+2026/02/02 09:45:36 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:36 [DEBUG] handshaking with SSH
+2026/02/02 09:45:36 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:36 [DEBUG] SSH handshake err: ssh: handshake failed: ssh: unable to authenticate, attempted methods [none publickey], no supported methods remain
+2026/02/02 09:45:36 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:36 [DEBUG] Detected authentication error. Increasing handshake attempts.
+2026/02/02 09:45:43 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:43 [INFO] Attempting SSH connection to 127.0.0.1:2850...
+2026/02/02 09:45:43 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:43 [DEBUG] reconnecting to TCP connection for SSH
+2026/02/02 09:45:43 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:43 [DEBUG] handshaking with SSH
+2026/02/02 09:45:43 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:43 [DEBUG] SSH handshake err: ssh: handshake failed: ssh: unable to authenticate, attempted methods [none publickey], no supported methods remain
+2026/02/02 09:45:43 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:43 [DEBUG] Detected authentication error. Increasing handshake attempts.
+2026/02/02 09:45:50 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:50 [INFO] Attempting SSH connection to 127.0.0.1:2850...
+2026/02/02 09:45:50 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:50 [DEBUG] reconnecting to TCP connection for SSH
+2026/02/02 09:45:50 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:50 [DEBUG] handshaking with SSH
+2026/02/02 09:45:50 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:50 [DEBUG] SSH handshake err: ssh: handshake failed: ssh: unable to authenticate, attempted methods [none publickey], no supported methods remain
+2026/02/02 09:45:50 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:50 [DEBUG] Detected authentication error. Increasing handshake attempts.
+2026/02/02 09:45:57 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:57 [INFO] Attempting SSH connection to 127.0.0.1:2850...
+2026/02/02 09:45:57 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:57 [DEBUG] reconnecting to TCP connection for SSH
+2026/02/02 09:45:57 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:57 [DEBUG] handshaking with SSH
+2026/02/02 09:45:58 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:58 [DEBUG] SSH handshake err: ssh: handshake failed: ssh: unable to authenticate, attempted methods [none publickey], no supported methods remain
+2026/02/02 09:45:58 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:45:58 [DEBUG] Detected authentication error. Increasing handshake attempts.
+2026/02/02 09:46:05 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:46:05 [INFO] Attempting SSH connection to 127.0.0.1:2850...
+2026/02/02 09:46:05 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:46:05 [DEBUG] reconnecting to TCP connection for SSH
+2026/02/02 09:46:05 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:46:05 [DEBUG] handshaking with SSH
+2026/02/02 09:46:05 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:46:05 [DEBUG] SSH handshake err: ssh: handshake failed: ssh: unable to authenticate, attempted methods [none publickey], no supported methods remain
+2026/02/02 09:46:05 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:46:05 [DEBUG] Detected authentication error. Increasing handshake attempts.
+2026/02/02 09:46:12 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:46:12 [INFO] Attempting SSH connection to 127.0.0.1:2850...
+2026/02/02 09:46:12 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:46:12 [DEBUG] reconnecting to TCP connection for SSH
+2026/02/02 09:46:12 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:46:12 [DEBUG] handshaking with SSH
+2026/02/02 09:46:12 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:46:12 [DEBUG] SSH handshake err: ssh: handshake failed: ssh: unable to authenticate, attempted methods [none publickey], no supported methods remain
+2026/02/02 09:46:12 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:46:12 [DEBUG] Detected authentication error. Increasing handshake attempts.
+2026/02/02 09:46:19 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:46:19 [INFO] Attempting SSH connection to 127.0.0.1:2850...
+2026/02/02 09:46:19 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:46:19 [DEBUG] reconnecting to TCP connection for SSH
+2026/02/02 09:46:19 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:46:19 [DEBUG] handshaking with SSH
+2026/02/02 09:46:19 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:46:19 [DEBUG] SSH handshake err: ssh: handshake failed: ssh: unable to authenticate, attempted methods [none publickey], no supported methods remain
+2026/02/02 09:46:19 packer-plugin-qemu_v1.1.3_x5.0_darwin_amd64 plugin: 2026/02/02 09:46:19 [DEBUG] Detected authentication error. Increasing handshake attempts.
