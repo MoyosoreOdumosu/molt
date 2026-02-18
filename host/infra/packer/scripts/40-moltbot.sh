@@ -3,8 +3,12 @@ set -euo pipefail
 
 INSTALL_DIR="${INSTALL_DIR:-/opt/moltbot}"
 MOLTBOT_USER="${MOLTBOT_USER:-moltbot}"
+MOLTBOT_HOME="/home/${MOLTBOT_USER}"
 
-sudo useradd -r -s /usr/sbin/nologin "$MOLTBOT_USER" || true
+if ! id -u "$MOLTBOT_USER" >/dev/null 2>&1; then
+  sudo useradd -r -m -d "$MOLTBOT_HOME" -s /usr/sbin/nologin "$MOLTBOT_USER"
+fi
+sudo install -d -m 0750 -o "$MOLTBOT_USER" -g "$MOLTBOT_USER" "$MOLTBOT_HOME"
 sudo mkdir -p "$INSTALL_DIR/releases" "$INSTALL_DIR/tee/gramine" /etc/moltbot /usr/local/lib/moltbot
 sudo chown -R "$MOLTBOT_USER:$MOLTBOT_USER" "$INSTALL_DIR"
 
@@ -16,10 +20,14 @@ sudo install -m 0755 /tmp/verify-attestation.sh "$INSTALL_DIR/tee/gramine/verify
 sudo install -m 0755 /tmp/get-storage-kek.sh "$INSTALL_DIR/tee/gramine/get-storage-kek.sh"
 sudo install -m 0755 /tmp/provision-tpm-kek.sh "$INSTALL_DIR/tee/gramine/provision-tpm-kek.sh"
 sudo install -m 0755 /tmp/moltbot-prestart.sh /usr/local/lib/moltbot/moltbot-prestart.sh
+sudo install -m 0755 /tmp/moltbot-ipfs-prestart.sh /usr/local/lib/moltbot/moltbot-ipfs-prestart.sh
 sudo install -m 0640 -o root -g "$MOLTBOT_USER" /tmp/moltbot.env.example /etc/moltbot/moltbot.env
 
 sudo install -m 0644 /tmp/moltbot-ipfs.service /etc/systemd/system/moltbot-ipfs.service
 sudo install -m 0644 /tmp/moltbot-host.service /etc/systemd/system/moltbot-host.service
+
+sudo -u "$MOLTBOT_USER" env HOME="$MOLTBOT_HOME" IPFS_PATH="$MOLTBOT_HOME/.ipfs" \
+  /usr/local/lib/moltbot/moltbot-ipfs-prestart.sh
 
 sudo systemctl daemon-reload
 sudo systemctl enable moltbot-ipfs moltbot-host

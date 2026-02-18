@@ -64,6 +64,13 @@ This is disabled by default.
 For bots that only receive the binary + config, install these:
 - `dist/moltbot-ipfs.service`
 - `dist/moltbot-host.service`
+- `dist/moltbot-prestart.sh`
+- `dist/moltbot-ipfs-prestart.sh`
+- `dist/moltbot.env.example`
+- `tee/gramine/generate-attestation.sh`
+- `tee/gramine/verify-attestation.sh`
+- `tee/gramine/get-storage-kek.sh`
+- `tee/gramine/provision-tpm-kek.sh`
 
 Suggested layout:
 ```
@@ -76,6 +83,37 @@ Install:
 ```
 sudo cp dist/moltbot-ipfs.service /etc/systemd/system/
 sudo cp dist/moltbot-host.service /etc/systemd/system/
+sudo install -d -m 0755 /usr/local/lib/moltbot
+sudo cp dist/moltbot-prestart.sh /usr/local/lib/moltbot/moltbot-prestart.sh
+sudo cp dist/moltbot-ipfs-prestart.sh /usr/local/lib/moltbot/moltbot-ipfs-prestart.sh
+sudo chmod 0755 /usr/local/lib/moltbot/moltbot-prestart.sh /usr/local/lib/moltbot/moltbot-ipfs-prestart.sh
+sudo install -d -m 0755 /opt/moltbot/tee/gramine
+sudo cp tee/gramine/generate-attestation.sh /opt/moltbot/tee/gramine/generate-attestation.sh
+sudo cp tee/gramine/verify-attestation.sh /opt/moltbot/tee/gramine/verify-attestation.sh
+sudo cp tee/gramine/get-storage-kek.sh /opt/moltbot/tee/gramine/get-storage-kek.sh
+sudo cp tee/gramine/provision-tpm-kek.sh /opt/moltbot/tee/gramine/provision-tpm-kek.sh
+sudo chmod 0755 /opt/moltbot/tee/gramine/generate-attestation.sh /opt/moltbot/tee/gramine/verify-attestation.sh /opt/moltbot/tee/gramine/get-storage-kek.sh /opt/moltbot/tee/gramine/provision-tpm-kek.sh
+sudo install -d -m 0750 /etc/moltbot
+sudo cp dist/moltbot.env.example /etc/moltbot/moltbot.env
+sudo chgrp moltbot /etc/moltbot/moltbot.env
+sudo chmod 0640 /etc/moltbot/moltbot.env
+sudo /opt/moltbot/tee/gramine/provision-tpm-kek.sh --handle 0x81010020 --env-file /etc/moltbot/moltbot.env
 sudo systemctl daemon-reload
 sudo systemctl enable --now moltbot-ipfs moltbot-host
 ```
+
+Fleet rollout from a control machine:
+```bash
+cd /path/to/molt
+scripts/rollout/provision-tpm-kek-fleet.sh \
+  --hosts-file scripts/rollout/hosts.example \
+  --ssh-user ubuntu \
+  --handle 0x81010020
+```
+This installs TPM KEK scripts remotely, provisions per-host KEKs, updates `/etc/moltbot/moltbot.env`, and restarts services with health checks.
+
+`moltbot-prestart.sh` enforces production prerequisites:
+- `NODE_ENV=production`
+- command-based KEK retrieval (no plaintext `MOLT_ENCRYPTION_STORAGE_KEK`)
+- attestation verifier present
+- attestation evidence generated when SGX attestation device is available

@@ -2,6 +2,8 @@
 Description=Moltbot Host (XRPL)
 After=network.target moltbot-ipfs.service
 Requires=moltbot-ipfs.service
+StartLimitIntervalSec=300
+StartLimitBurst=3
 
 [Service]
 Type=simple
@@ -13,7 +15,7 @@ EnvironmentFile=-/etc/moltbot/moltbot.env
 ExecStartPre=/usr/local/lib/moltbot/moltbot-prestart.sh
 ExecStart=/bin/bash -lc '[ -f /etc/moltbot/moltbot.env ] && . /etc/moltbot/moltbot.env; exec /opt/moltbot/moltbot-host listen'
 Restart=on-failure
-RestartSec=5
+RestartSec=10
 
 [Install]
 WantedBy=multi-user.target

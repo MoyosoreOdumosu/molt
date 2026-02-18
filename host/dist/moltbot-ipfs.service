@@ -1,13 +1,18 @@
 [Unit]
 Description=Moltbot IPFS Daemon
 After=network.target
+StartLimitIntervalSec=300
+StartLimitBurst=3
 
 [Service]
 Type=simple
 User=moltbot
-ExecStart=/usr/local/bin/ipfs daemon
+Environment=HOME=/home/moltbot
+Environment=IPFS_PATH=/home/moltbot/.ipfs
+ExecStartPre=/usr/local/lib/moltbot/moltbot-ipfs-prestart.sh
+ExecStart=/usr/local/bin/ipfs daemon --migrate=true
 Restart=on-failure
-RestartSec=5
+RestartSec=10
 
 [Install]
 WantedBy=multi-user.target

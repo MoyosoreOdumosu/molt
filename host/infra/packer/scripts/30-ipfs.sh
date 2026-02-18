@@ -6,5 +6,3 @@ curl -fsSL "https://dist.ipfs.tech/kubo/${IPFS_VERSION}/kubo_${IPFS_VERSION}_lin
 tar -xzf /tmp/kubo.tgz -C /tmp
 sudo /tmp/kubo/install.sh
 rm -rf /tmp/kubo /tmp/kubo.tgz
-
-sudo -u moltbot ipfs init || true

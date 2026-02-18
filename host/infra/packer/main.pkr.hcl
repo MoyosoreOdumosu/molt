@@ -84,6 +84,11 @@ build {
   }
 
   provisioner "file" {
+    source      = "../../dist/moltbot-ipfs-prestart.sh"
+    destination = "/tmp/moltbot-ipfs-prestart.sh"
+  }
+
+  provisioner "file" {
     source      = "../../dist/moltbot.env.example"
     destination = "/tmp/moltbot.env.example"
   }
