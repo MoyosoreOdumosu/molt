@@ -35,7 +35,6 @@ jobs:
             echo "Cloud image checksum mismatch" >&2
             exit 1
           fi
-          echo "PACKER_BASE_IMG_CHECKSUM=sha256:${actual}" >> "$GITHUB_ENV"
 
           sudo virt-customize -a "$BASE_IMG" \
             --run-command "id -u ubuntu >/dev/null 2>&1 || useradd -m -s /bin/bash -G sudo ubuntu" \
@@ -45,6 +44,9 @@ jobs:
             --ssh-inject "ubuntu:file:${GITHUB_WORKSPACE}/host/infra/packer/packer_ssh_ed25519.pub" \
             --run-command "sed -ri 's/^#?PasswordAuthentication\\s+.*/PasswordAuthentication yes/' /etc/ssh/sshd_config" \
             --run-command "if ! grep -q '^PasswordAuthentication yes' /etc/ssh/sshd_config; then echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config; fi"
+
+          customized="$(sha256sum "$BASE_IMG" | awk '{print $1}')"
+          echo "PACKER_BASE_IMG_CHECKSUM=sha256:${customized}" >> "$GITHUB_ENV"
 
       - name: Install Packer
         uses: hashicorp/setup-packer@v3
