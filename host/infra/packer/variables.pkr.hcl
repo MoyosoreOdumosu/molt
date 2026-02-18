@@ -55,3 +55,13 @@ variable "ssh_password" {
   default   = "ubuntu"
   sensitive = true
 }
+
+variable "ssh_timeout" {
+  type    = string
+  default = "45m"
+}
+
+variable "ssh_handshake_attempts" {
+  type    = number
+  default = 200
+}

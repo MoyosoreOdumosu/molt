@@ -10,7 +10,8 @@ autoinstall:
   identity:
     hostname: moltbot
     username: ubuntu
-    password: "$6$GJotJhMXr6QBHpj9$p7pU4yAUi7FQ9DHO3SDnKDNYWvb3/i58ZHKc4PeSBvdcdy.DwAwTFmNKkHXvw.DPXCT5hrNTyS1y8xs0zzQJ5."
+    # sha512crypt hash for password "ubuntu"
+    password: "$6$ewww/CXB.YAGmEns$agfGwHnEGYH0KGIQawkmV75H6MHLbEfKvvES3QkHWqegPjKjrdBfbwu5.ohmE/l312oJE9fQK5y5b.FdXNucv."
   ssh:
     install-server: true
     allow-pw: true
@@ -20,7 +21,7 @@ autoinstall:
     - openssh-server
     - curl
     - ca-certificates
-  # Ensure Packer can SSH as ubuntu/ubuntu (in case identity password hash differs)
+  # Defense-in-depth: reapply ubuntu/ubuntu and password auth in target.
   late-commands:
     - curtin in-target --target=/target -- bash -c "echo 'ubuntu:ubuntu' | chpasswd"
     - curtin in-target --target=/target -- bash -c "sed -i 's/^#\\?PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config"

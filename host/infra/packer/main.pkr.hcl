@@ -23,8 +23,8 @@ source "qemu" "ubuntu" {
   ssh_private_key_file = "packer_ssh_ed25519"
   # Fallback when key injection fails/times out in installer; password is set in user-data late-commands.
   ssh_password      = var.ssh_password
-  ssh_timeout       = "45m"
-  ssh_handshake_attempts = 200
+  ssh_timeout       = var.ssh_timeout
+  ssh_handshake_attempts = var.ssh_handshake_attempts
   vnc_bind_address  = "127.0.0.1"
   vnc_port_min      = 5900
   vnc_port_max      = 6000
@@ -67,8 +67,7 @@ build {
       "scripts/00-base.sh",
       "scripts/10-sgx-dcap.sh",
       "scripts/20-gramine.sh",
-      "scripts/30-ipfs.sh",
-      "scripts/40-moltbot.sh"
+      "scripts/30-ipfs.sh"
     ]
   }
 
@@ -95,5 +94,56 @@ build {
   provisioner "file" {
     source      = "../../dist/moltbot-host.service"
     destination = "/tmp/moltbot-host.service"
+  }
+
+  provisioner "file" {
+    source      = "../../dist/moltbot-prestart.sh"
+    destination = "/tmp/moltbot-prestart.sh"
+  }
+
+  provisioner "file" {
+    source      = "../../dist/moltbot.env.example"
+    destination = "/tmp/moltbot.env.example"
+  }
+
+  provisioner "file" {
+    source      = "../../tee/gramine/generate-attestation.sh"
+    destination = "/tmp/generate-attestation.sh"
+  }
+
+  provisioner "file" {
+    source      = "../../tee/gramine/verify-attestation.sh"
+    destination = "/tmp/verify-attestation.sh"
+  }
+
+  provisioner "file" {
+    source      = "../../tee/gramine/get-storage-kek.sh"
+    destination = "/tmp/get-storage-kek.sh"
+  }
+
+  provisioner "file" {
+    source      = "../../tee/gramine/provision-tpm-kek.sh"
+    destination = "/tmp/provision-tpm-kek.sh"
+  }
+
+  provisioner "file" {
+    source      = "packer_ssh_ed25519.pub"
+    destination = "/tmp/packer_ssh_ed25519.pub"
+  }
+
+  provisioner "shell" {
+    environment_vars = [
+      "INSTALL_DIR=${var.install_dir}",
+      "MOLTBOT_USER=${var.moltbot_user}"
+    ]
+    scripts = [
+      "scripts/40-moltbot.sh"
+    ]
+  }
+
+  provisioner "shell" {
+    scripts = [
+      "scripts/50-ssh-hardening.sh"
+    ]
   }
 }

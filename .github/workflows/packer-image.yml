@@ -42,6 +42,8 @@ jobs:
           packer build -force \
             -var "accelerator=none" \
             -var "qemu_display=none" \
+            -var "ssh_timeout=90m" \
+            -var "ssh_handshake_attempts=1200" \
             -var "moltbot_binary=../../releases/moltbot-host" \
             -var "moltbot_config=../../config.packer.json" \
             -var "release_manifest=../../releases/latest.json" \
