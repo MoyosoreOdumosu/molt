@@ -33,3 +33,4 @@ Important:
 
 - Run `infra/packer/prepare-autoinstall-ssh.sh` before `packer build` so `cloud-init/user-data` `ssh_authorized_keys` matches `packer_ssh_ed25519.pub`.
 - Upload `packer-debug.log`, `packer-build.log`, and `serial.log` as artifacts on failure.
+- Build uses temporary `ubuntu/ubuntu` SSH fallback for communicator reliability; final provisioner hardens SSH back to key-only.
