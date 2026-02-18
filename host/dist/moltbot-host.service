@@ -5,9 +5,13 @@ Requires=moltbot-ipfs.service
 
 [Service]
 Type=simple
+PermissionsStartOnly=true
 User=moltbot
 WorkingDirectory=/opt/moltbot
-ExecStart=/opt/moltbot/moltbot-host listen
+Environment=NODE_ENV=production
+EnvironmentFile=-/etc/moltbot/moltbot.env
+ExecStartPre=/usr/local/lib/moltbot/moltbot-prestart.sh
+ExecStart=/bin/bash -lc '[ -f /etc/moltbot/moltbot.env ] && . /etc/moltbot/moltbot.env; exec /opt/moltbot/moltbot-host listen'
 Restart=on-failure
 RestartSec=5
 
