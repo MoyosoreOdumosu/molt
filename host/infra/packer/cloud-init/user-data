@@ -19,7 +19,3 @@ ssh_pwauth: true
 disable_root: true
 package_update: false
 package_upgrade: false
-
-# Ensure SSH service is available as soon as cloud-init completes.
-bootcmd:
-  - [ systemctl, enable, --now, ssh ]

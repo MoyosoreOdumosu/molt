@@ -30,7 +30,7 @@ source "qemu" "ubuntu" {
     "cloud-init/user-data",
     "cloud-init/meta-data"
   ]
-  cd_label          = "cidata"
+  cd_label          = "CIDATA"
   qemuargs = [
     ["-serial", "file:serial.log"],
     ["-display", var.qemu_display]
