@@ -35,6 +35,7 @@ jobs:
             echo "Cloud image checksum mismatch" >&2
             exit 1
           fi
+          echo "PACKER_BASE_IMG_CHECKSUM=sha256:${actual}" >> "$GITHUB_ENV"
 
           sudo virt-customize -a "$BASE_IMG" \
             --run-command "id -u ubuntu >/dev/null 2>&1 || useradd -m -s /bin/bash -G sudo ubuntu" \
@@ -71,7 +72,7 @@ jobs:
             -var "accelerator=none" \
             -var "qemu_display=none" \
             -var "ubuntu_cloud_image_url=/tmp/ubuntu-22.04-server-cloudimg-amd64.img" \
-            -var "ubuntu_cloud_image_checksum=none" \
+            -var "ubuntu_cloud_image_checksum=${PACKER_BASE_IMG_CHECKSUM}" \
             -var "ssh_timeout=90m" \
             -var "ssh_handshake_attempts=1200" \
             -var "moltbot_binary=../../releases/moltbot-host" \

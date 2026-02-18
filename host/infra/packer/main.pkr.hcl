@@ -28,7 +28,8 @@ source "qemu" "ubuntu" {
   shutdown_command  = "sudo shutdown -P now"
   cd_files          = [
     "cloud-init/user-data",
-    "cloud-init/meta-data"
+    "cloud-init/meta-data",
+    "cloud-init/network-config"
   ]
   cd_label          = "CIDATA"
   qemuargs = [
