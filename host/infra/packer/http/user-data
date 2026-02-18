@@ -23,3 +23,4 @@ autoinstall:
   # Ensure Packer can SSH as ubuntu/ubuntu (in case identity password hash differs)
   late-commands:
     - curtin in-target --target=/target -- bash -c "echo 'ubuntu:ubuntu' | chpasswd"
+    - curtin in-target --target=/target -- bash -c "sed -i 's/^#\\?PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config"

@@ -27,6 +27,9 @@ else
   fi
 fi
 
+# Ensure autoinstall authorized-keys matches packer_ssh_ed25519.pub.
+bash "$SCRIPT_DIR/prepare-autoinstall-ssh.sh"
+
 # Enable verbose debug logs when DEBUG=1.
 if [[ "${DEBUG:-0}" == "1" ]]; then
   export PACKER_LOG=1

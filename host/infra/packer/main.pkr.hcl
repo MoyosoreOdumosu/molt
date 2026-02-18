@@ -21,6 +21,8 @@ source "qemu" "ubuntu" {
   boot_wait         = "90s"
   ssh_username      = "ubuntu"
   ssh_private_key_file = "packer_ssh_ed25519"
+  # Fallback when key injection fails/times out in installer; password is set in user-data late-commands.
+  ssh_password      = var.ssh_password
   ssh_timeout       = "45m"
   ssh_handshake_attempts = 200
   vnc_bind_address  = "127.0.0.1"

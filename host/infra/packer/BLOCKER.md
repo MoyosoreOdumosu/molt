@@ -25,6 +25,11 @@ We have tried:
 
 Workflow file: **`.github/workflows/packer-image.yml`**. It uses `config.a.test.json` for the build; for production you’d use a real `config.json` or a secret.
 
+Important for CI SSH reliability:
+
+- Run `infra/packer/prepare-autoinstall-ssh.sh` before `packer build` so `http/user-data` `authorized-keys` matches `packer_ssh_ed25519.pub`.
+- Upload `packer-debug.log`, `packer-build.log`, and `serial.log` as artifacts even on failure.
+
 ### Option B: Local Ubuntu (or Ubuntu VM / Docker)
 
 On a machine with Ubuntu and QEMU (and KVM if possible):

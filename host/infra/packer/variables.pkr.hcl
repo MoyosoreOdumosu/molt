@@ -49,3 +49,9 @@ variable "release_manifest" {
   type    = string
   default = "../../releases/latest.json"
 }
+
+variable "ssh_password" {
+  type      = string
+  default   = "ubuntu"
+  sensitive = true
+}

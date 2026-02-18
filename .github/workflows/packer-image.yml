@@ -29,6 +29,7 @@ jobs:
           npm run build:pkg:linux
           cp config.a.test.json config.json
           npm run image:prepare
+          bash infra/packer/prepare-autoinstall-ssh.sh
 
       - name: Packer build
         working-directory: host/infra/packer
@@ -46,7 +47,19 @@ jobs:
             -var "release_manifest=../../releases/latest.json" \
             .
 
+      - name: Upload Packer logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: packer-logs
+          if-no-files-found: warn
+          path: |
+            host/infra/packer/packer-debug.log
+            host/infra/packer/packer-build.log
+            host/infra/packer/serial.log
+
       - name: Upload image artifact
+        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: moltbot-ubuntu-22.04
