@@ -51,12 +51,6 @@ variable "release_manifest" {
   default = "../../releases/latest.json"
 }
 
-variable "ssh_password" {
-  type      = string
-  default   = "ubuntu"
-  sensitive = true
-}
-
 variable "ssh_timeout" {
   type    = string
   default = "45m"

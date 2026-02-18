@@ -3,19 +3,12 @@ users:
   - default
   - name: ubuntu
     shell: /bin/bash
-    lock_passwd: false
+    lock_passwd: true
     sudo: ALL=(ALL) NOPASSWD:ALL
     ssh_authorized_keys:
       - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPeTqI39VOfMtR7GMuM+dMCwAFYcM3j/jJaQoWPUbNZ9 user@UserdeMacBook-Air.local"
 
-chpasswd:
-  expire: false
-  list: |
-    ubuntu:ubuntu
-
-# Packer fallback: allow password auth during image build if key auth has not landed yet.
-# Final hardening script disables password auth and locks password before artifact output.
-ssh_pwauth: true
+ssh_pwauth: false
 disable_root: true
 package_update: false
 package_upgrade: false

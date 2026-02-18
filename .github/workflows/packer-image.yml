@@ -16,7 +16,7 @@ jobs:
       - name: Install QEMU
         run: sudo apt-get update && sudo apt-get install -y qemu-system-x86
 
-      - name: Prepare cloud base image (communicator fallback)
+      - name: Prepare cloud base image
         run: |
           set -euo pipefail
           BASE_URL="https://cloud-images.ubuntu.com/releases/jammy/release/ubuntu-22.04-server-cloudimg-amd64.img"
@@ -40,10 +40,7 @@ jobs:
             --run-command "id -u ubuntu >/dev/null 2>&1 || useradd -m -s /bin/bash -G sudo ubuntu" \
             --run-command "mkdir -p /home/ubuntu/.ssh && chown -R ubuntu:ubuntu /home/ubuntu/.ssh && chmod 700 /home/ubuntu/.ssh" \
             --run-command "echo 'ubuntu ALL=(ALL) NOPASSWD:ALL' >/etc/sudoers.d/90-packer-ubuntu && chmod 440 /etc/sudoers.d/90-packer-ubuntu" \
-            --password "ubuntu:password:ubuntu" \
-            --ssh-inject "ubuntu:file:${GITHUB_WORKSPACE}/host/infra/packer/packer_ssh_ed25519.pub" \
-            --run-command "sed -ri 's/^#?PasswordAuthentication\\s+.*/PasswordAuthentication yes/' /etc/ssh/sshd_config" \
-            --run-command "if ! grep -q '^PasswordAuthentication yes' /etc/ssh/sshd_config; then echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config; fi"
+            --ssh-inject "ubuntu:file:${GITHUB_WORKSPACE}/host/infra/packer/packer_ssh_ed25519.pub"
 
           customized="$(sha256sum "$BASE_IMG" | awk '{print $1}')"
           echo "PACKER_BASE_IMG_CHECKSUM=sha256:${customized}" >> "$GITHUB_ENV"

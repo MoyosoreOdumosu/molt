@@ -22,7 +22,6 @@ source "qemu" "ubuntu" {
   boot_wait         = "5s"
   ssh_username      = "ubuntu"
   ssh_private_key_file = "packer_ssh_ed25519"
-  ssh_password      = var.ssh_password
   ssh_timeout       = var.ssh_timeout
   ssh_handshake_attempts = var.ssh_handshake_attempts
   shutdown_command  = "sudo shutdown -P now"
