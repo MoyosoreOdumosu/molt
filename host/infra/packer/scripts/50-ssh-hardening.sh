@@ -29,6 +29,26 @@ else
   exit 1
 fi
 
+set_sshd_option() {
+  local key="$1"
+  local value="$2"
+  local cfg="/etc/ssh/sshd_config"
+
+  # Replace existing declarations (commented or uncommented), case-insensitive.
+  sudo sed -ri "s|^[[:space:]]*#?[[:space:]]*${key}[[:space:]]+.*$|${key} ${value}|I" "$cfg"
+  if ! sudo grep -Eiq "^[[:space:]]*${key}[[:space:]]+${value}[[:space:]]*$" "$cfg"; then
+    echo "${key} ${value}" | sudo tee -a "$cfg" >/dev/null
+  fi
+}
+
+set_sshd_option "PasswordAuthentication" "no"
+set_sshd_option "KbdInteractiveAuthentication" "no"
+set_sshd_option "ChallengeResponseAuthentication" "no"
+set_sshd_option "PubkeyAuthentication" "yes"
+set_sshd_option "PermitEmptyPasswords" "no"
+set_sshd_option "PermitRootLogin" "no"
+set_sshd_option "UsePAM" "yes"
+
 sudo install -d -m 0755 /etc/ssh/sshd_config.d
 cat <<'SSH_HARDEN' | sudo tee /etc/ssh/sshd_config.d/99-moltbot-hardening.conf >/dev/null
 # Managed by Packer: enforce key-based SSH only in shipped image.
