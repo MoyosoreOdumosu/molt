@@ -16,6 +16,32 @@ jobs:
       - name: Install QEMU
         run: sudo apt-get update && sudo apt-get install -y qemu-system-x86
 
+      - name: Prepare cloud base image (communicator fallback)
+        run: |
+          set -euo pipefail
+          BASE_URL="https://cloud-images.ubuntu.com/releases/jammy/release/ubuntu-22.04-server-cloudimg-amd64.img"
+          SUMS_URL="https://cloud-images.ubuntu.com/releases/jammy/release/SHA256SUMS"
+          BASE_IMG="/tmp/ubuntu-22.04-server-cloudimg-amd64.img"
+
+          sudo apt-get update
+          sudo apt-get install -y libguestfs-tools
+
+          curl -fsSL "$BASE_URL" -o "$BASE_IMG"
+          curl -fsSL "$SUMS_URL" -o /tmp/SHA256SUMS
+
+          expected="$(awk '/ubuntu-22.04-server-cloudimg-amd64.img$/ {print $1; exit}' /tmp/SHA256SUMS)"
+          actual="$(sha256sum "$BASE_IMG" | awk '{print $1}')"
+          if [[ -z "$expected" || "$expected" != "$actual" ]]; then
+            echo "Cloud image checksum mismatch" >&2
+            exit 1
+          fi
+
+          sudo virt-customize -a "$BASE_IMG" \
+            --password "ubuntu:password:ubuntu" \
+            --ssh-inject "ubuntu:file:${GITHUB_WORKSPACE}/host/infra/packer/packer_ssh_ed25519.pub" \
+            --run-command "sed -ri 's/^#?PasswordAuthentication\\s+.*/PasswordAuthentication yes/' /etc/ssh/sshd_config" \
+            --run-command "if ! grep -q '^PasswordAuthentication yes' /etc/ssh/sshd_config; then echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config; fi"
+
       - name: Install Packer
         uses: hashicorp/setup-packer@v3
         with:
@@ -41,6 +67,8 @@ jobs:
           packer build -force \
             -var "accelerator=none" \
             -var "qemu_display=none" \
+            -var "ubuntu_cloud_image_url=/tmp/ubuntu-22.04-server-cloudimg-amd64.img" \
+            -var "ubuntu_cloud_image_checksum=none" \
             -var "ssh_timeout=90m" \
             -var "ssh_handshake_attempts=1200" \
             -var "moltbot_binary=../../releases/moltbot-host" \
