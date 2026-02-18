@@ -50,7 +50,15 @@ set_sshd_option "PermitRootLogin" "no"
 set_sshd_option "UsePAM" "yes"
 
 sudo install -d -m 0755 /etc/ssh/sshd_config.d
-cat <<'SSH_HARDEN' | sudo tee /etc/ssh/sshd_config.d/99-moltbot-hardening.conf >/dev/null
+if sudo test -d /etc/ssh/sshd_config.d; then
+  while IFS= read -r conf; do
+    sudo sed -ri 's|^[[:space:]]*#?[[:space:]]*PasswordAuthentication[[:space:]]+.*$|PasswordAuthentication no|I' "$conf"
+    sudo sed -ri 's|^[[:space:]]*#?[[:space:]]*KbdInteractiveAuthentication[[:space:]]+.*$|KbdInteractiveAuthentication no|I' "$conf"
+    sudo sed -ri 's|^[[:space:]]*#?[[:space:]]*ChallengeResponseAuthentication[[:space:]]+.*$|ChallengeResponseAuthentication no|I' "$conf"
+  done < <(sudo find /etc/ssh/sshd_config.d -maxdepth 1 -type f -name '*.conf' | sort)
+fi
+
+cat <<'SSH_HARDEN' | sudo tee /etc/ssh/sshd_config.d/zzzz-moltbot-hardening.conf >/dev/null
 # Managed by Packer: enforce key-based SSH only in shipped image.
 PasswordAuthentication no
 KbdInteractiveAuthentication no
@@ -59,8 +67,9 @@ PubkeyAuthentication yes
 PermitEmptyPasswords no
 PermitRootLogin no
 UsePAM yes
+AuthenticationMethods publickey
 SSH_HARDEN
-sudo chmod 0644 /etc/ssh/sshd_config.d/99-moltbot-hardening.conf
+sudo chmod 0644 /etc/ssh/sshd_config.d/zzzz-moltbot-hardening.conf
 
 # Prevent cloud-init from re-enabling SSH password auth at first boot.
 sudo install -d -m 0755 /etc/cloud/cloud.cfg.d
@@ -81,7 +90,17 @@ if id ubuntu >/dev/null 2>&1; then
   fi
 fi
 
-if ! sudo "$SSHD_BIN" -T -f /etc/ssh/sshd_config | grep -q '^passwordauthentication no$'; then
+effective_cfg="$(sudo "$SSHD_BIN" -T -f /etc/ssh/sshd_config -C user=ubuntu,host=localhost,addr=127.0.0.1)"
+if ! printf '%s\n' "$effective_cfg" | grep -q '^passwordauthentication no$'; then
   echo "effective sshd config does not enforce PasswordAuthentication no" >&2
+  printf '%s\n' "$effective_cfg" | grep -E '^(passwordauthentication|kbdinteractiveauthentication|challengeresponseauthentication|pubkeyauthentication|authenticationmethods|permitrootlogin|usepam) ' >&2 || true
+  echo "--- /etc/ssh/sshd_config ---" >&2
+  sudo sed -n '1,220p' /etc/ssh/sshd_config >&2 || true
+  if sudo test -d /etc/ssh/sshd_config.d; then
+    for conf in $(sudo find /etc/ssh/sshd_config.d -maxdepth 1 -type f -name '*.conf' | sort); do
+      echo "--- ${conf} ---" >&2
+      sudo sed -n '1,220p' "$conf" >&2 || true
+    done
+  fi
   exit 1
 fi
