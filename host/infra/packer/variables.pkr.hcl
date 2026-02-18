@@ -15,14 +15,15 @@ variable "ubuntu_version" {
   default = "22.04"
 }
 
-variable "ubuntu_iso_url" {
+variable "ubuntu_cloud_image_url" {
   type    = string
-  default = "https://releases.ubuntu.com/22.04/ubuntu-22.04.5-live-server-amd64.iso"
+  default = "https://cloud-images.ubuntu.com/releases/jammy/release/ubuntu-22.04-server-cloudimg-amd64.img"
 }
 
-variable "ubuntu_iso_checksum" {
+variable "ubuntu_cloud_image_checksum" {
   type    = string
-  default = "sha256:9bc6028870aef3f74f4e16b900008179e78b130e6b0b9a140635434a46aa98b0"
+  # Verify via upstream checksum manifest.
+  default = "file:https://cloud-images.ubuntu.com/releases/jammy/release/SHA256SUMS"
 }
 
 variable "moltbot_user" {
@@ -48,12 +49,6 @@ variable "moltbot_config" {
 variable "release_manifest" {
   type    = string
   default = "../../releases/latest.json"
-}
-
-variable "ssh_password" {
-  type      = string
-  default   = "ubuntu"
-  sensitive = true
 }
 
 variable "ssh_timeout" {

@@ -1,5 +1,4 @@
-# Build moltbot Ubuntu image on Ubuntu runner (avoids Subiquity storage bug on macOS).
-# On macOS the installer ignores autoinstall storage and sticks at "Guided storage configuration".
+# Build moltbot Ubuntu image on Ubuntu runner using cloud image boot (no ISO+VNC autoinstall).
 # Run this workflow to produce the image; artifact: output/moltbot-ubuntu-22.04/ (qcow2).
 name: Packer image (Ubuntu)
 
@@ -38,7 +37,7 @@ jobs:
           PACKER_LOG_PATH: packer-debug.log
         run: |
           packer init -upgrade .
-          # accelerator=none, qemu_display=none: GitHub runners have no KVM; cocoa is macOS-only
+          # accelerator=none, qemu_display=none: GitHub runners have no KVM; cloud image path avoids VNC typing.
           packer build -force \
             -var "accelerator=none" \
             -var "qemu_display=none" \

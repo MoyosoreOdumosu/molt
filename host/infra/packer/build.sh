@@ -2,7 +2,7 @@
 # Initialize Packer (if needed) and build the image.
 # Uses .bin/packer if present, else system 'packer'.
 # Run from infra/packer/: ./build.sh
-# Build takes 30–60 min (ISO download, VM install, provisioners).
+# Build takes 15–45 min (cloud image download + provisioners).
 
 set -euo pipefail
 
@@ -27,7 +27,7 @@ else
   fi
 fi
 
-# Ensure autoinstall authorized-keys matches packer_ssh_ed25519.pub.
+# Ensure cloud-init SSH key matches packer communicator key.
 bash "$SCRIPT_DIR/prepare-autoinstall-ssh.sh"
 
 # Enable verbose debug logs when DEBUG=1.

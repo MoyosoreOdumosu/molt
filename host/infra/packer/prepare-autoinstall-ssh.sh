@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Keep Packer communicator SSH key and autoinstall authorized-keys in sync.
+# Keep Packer communicator SSH key and cloud-init authorized keys in sync.
 # Also ensures local key file permissions are strict.
 #
 # Usage:
@@ -9,7 +9,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PUBKEY_FILE="${1:-$SCRIPT_DIR/packer_ssh_ed25519.pub}"
-USER_DATA_FILE="${2:-$SCRIPT_DIR/http/user-data}"
+USER_DATA_FILE="${2:-$SCRIPT_DIR/cloud-init/user-data}"
 PRIVKEY_FILE="${SCRIPT_DIR}/packer_ssh_ed25519"
 
 if [[ ! -f "$PUBKEY_FILE" ]]; then
@@ -18,7 +18,7 @@ if [[ ! -f "$PUBKEY_FILE" ]]; then
 fi
 
 if [[ ! -f "$USER_DATA_FILE" ]]; then
-  echo "Missing autoinstall user-data file: $USER_DATA_FILE" >&2
+  echo "Missing cloud-init user-data file: $USER_DATA_FILE" >&2
   exit 1
 fi
 
@@ -41,13 +41,14 @@ lines = text.splitlines()
 auth_idx = None
 auth_indent = ""
 for i, line in enumerate(lines):
-    if line.strip() == "authorized-keys:":
+    stripped = line.strip()
+    if stripped in {"authorized-keys:", "ssh_authorized_keys:"}:
         auth_idx = i
         auth_indent = re.match(r"^(\s*)", line).group(1)
         break
 
 if auth_idx is None:
-    raise SystemExit("authorized-keys block not found in user-data")
+    raise SystemExit("authorized keys block not found in user-data")
 
 entry_indent = auth_indent + "  "
 entry_line = f'{entry_indent}- "{pubkey}"'
@@ -75,4 +76,4 @@ if [[ -f "$PRIVKEY_FILE" ]]; then
   chmod 600 "$PRIVKEY_FILE" || true
 fi
 
-echo "Synchronized authorized-keys in ${USER_DATA_FILE} with ${PUBKEY_FILE}"
+echo "Synchronized SSH key in ${USER_DATA_FILE} with ${PUBKEY_FILE}"
