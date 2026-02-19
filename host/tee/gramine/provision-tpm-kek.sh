@@ -147,13 +147,23 @@ fi
 
 tpm2_createprimary -Q -C o -g sha256 -G rsa -c "$primary_ctx"
 
-create_args=(-Q -C "$primary_ctx" -G keyedhash -u "$kek_pub" -r "$kek_priv" -i "$kek_raw")
+create_common_args=(-Q -C "$primary_ctx" -u "$kek_pub" -r "$kek_priv" -i "$kek_raw")
+create_auth_args=()
 if [[ -n "$OBJECT_AUTH_FILE" ]]; then
-  create_args+=(-p "file:$OBJECT_AUTH_FILE")
+  create_auth_args+=(-p "file:$OBJECT_AUTH_FILE")
 elif [[ -n "$OBJECT_AUTH" ]]; then
-  create_args+=(-p "$OBJECT_AUTH")
+  create_auth_args+=(-p "$OBJECT_AUTH")
 fi
-tpm2_create "${create_args[@]}"
+
+if ! tpm2_create "${create_common_args[@]}" -G keyedhash "${create_auth_args[@]}" 2>"$tmp_dir/create.err"; then
+  if grep -q "Cannot specify -G and -i together" "$tmp_dir/create.err"; then
+    # Older/newer tool variants infer a sealing object for -i and reject explicit -G.
+    tpm2_create "${create_common_args[@]}" "${create_auth_args[@]}"
+  else
+    cat "$tmp_dir/create.err" >&2
+    exit 1
+  fi
+fi
 
 tpm2_load -Q -C "$primary_ctx" -u "$kek_pub" -r "$kek_priv" -c "$sealed_ctx"
 tpm2_evictcontrol "${evict_args[@]}" -c "$sealed_ctx" "$HANDLE" >/dev/null
