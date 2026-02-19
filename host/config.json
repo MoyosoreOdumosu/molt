@@ -2,7 +2,19 @@
   "network": {
     "xrplWebSocket": "wss://s.altnet.rippletest.net:51233",
     "faucetUrl": "https://faucet.altnet.rippletest.net/accounts",
-    "maxPayloadBytes": 900
+    "maxPayloadBytes": 900,
+    "defaultOutbound": "testnet",
+    "messageDrops": "1",
+    "policy": {
+      "enforceMainnetAfterTestnetLimit": true,
+      "testnetMessageLimit": 100,
+      "requireMainnetRegistration": true
+    },
+    "mainnet": {
+      "xrplWebSocket": "wss://s1.ripple.com",
+      "maxPayloadBytes": 900,
+      "messageDrops": "1"
+    }
   },
   "storage": {
     "path": "./data-a"
@@ -22,12 +34,115 @@
     "host": "127.0.0.1",
     "port": 8787,
     "allowSend": false,
-    "publicBase": "https://bot-a.example.com"
+    "publicBase": "https://bot-a.example.com",
+    "walletActivation": {
+      "enabled": true,
+      "activationTimeoutMs": 45000,
+      "pollIntervalMs": 1500,
+      "minIntervalMs": 30000,
+      "maxFundingAttempts": 2
+    },
+    "registration": {
+      "enabled": true,
+      "minIntervalMs": 30000
+    },
+    "rateLimit": {
+      "enabled": true,
+      "windowMs": 60000,
+      "maxRequests": 120
+    }
+  },
+  "commerce": {
+    "enabled": false,
+    "requireApiAuth": true,
+    "requireReadApiAuth": true,
+    "requireGate": false,
+    "requireSmartContractRailInProduction": true,
+    "requireActionNonce": true,
+    "enforceDeadlines": true,
+    "maxOrderAmount": "1000000",
+    "lockFundsTimeoutSeconds": 3600,
+    "deliveryTimeoutSeconds": 604800,
+    "settlementTimeoutSeconds": 604800,
+    "disputeWindowSeconds": 604800,
+    "actionNonceTtlSeconds": 86400,
+    "actionNonceMaxEntries": 200000,
+    "authorization": {
+      "enabled": true
+    },
+    "rateLimit": {
+      "enabled": true,
+      "windowMs": 60000,
+      "maxRequests": 120,
+      "maxEntries": 20000
+    },
+    "fulfillment": {
+      "maxPhysicalDisputeWindowSeconds": 2592000
+    },
+    "proofVerification": {
+      "enabled": true,
+      "maxPayloadBytes": 16384,
+      "maxSignatureSkewSeconds": 300,
+      "maxSignatureTtlSeconds": 1800,
+      "verifyTimeoutMs": 3000,
+      "verifyCommand": []
+    },
+    "maxQuoteTtlSeconds": 604800,
+    "maxMetadataBytes": 8192,
+    "maxProofBytes": 32768,
+    "maxOrderHistoryEntries": 256,
+    "maxOrders": 50000,
+    "maxQuotes": 50000,
+    "idempotencyTtlSeconds": 86400,
+    "idempotencyMaxEntries": 200000,
+    "allowedSettlementRails": [
+      "xrpl-evm"
+    ],
+    "allowedFulfillmentTypes": [
+      "on_ledger_asset",
+      "digital_artifact",
+      "service_access",
+      "physical"
+    ],
+    "allowedDeliveryProofKinds": [
+      "on_ledger_transfer",
+      "encrypted_artifact",
+      "service_entitlement",
+      "physical_shipment"
+    ],
+    "evm": {
+      "enabled": false,
+      "rpcUrl": "",
+      "chainId": "1440002",
+      "contractAddress": "",
+      "minConfirmations": 1,
+      "txFetchTimeoutMs": 12000,
+      "maxBroadcastBytes": 262144,
+      "proofSignatureTtlSeconds": 900,
+      "defaultSettlementWindowSeconds": 604800,
+      "defaultDisputeWindowSeconds": 604800,
+      "proofSignerPrivateKeyEnv": "MOLT_COMMERCE_EVM_PROOF_SIGNER_PRIVATE_KEY",
+      "governance": {
+        "minArbitratorStakeXrp": "10000",
+        "platformFeeBps": 30,
+        "arbitratorRewardBps": 5000,
+        "epochDurationSeconds": 86400,
+        "unbondingPeriodSeconds": 604800,
+        "maxActiveArbitrators": 21,
+        "maxCandidates": 256,
+        "vrfCoordinator": "",
+        "vrfKeyHash": "",
+        "vrfSubscriptionId": "",
+        "vrfMinConfirmations": 3,
+        "vrfCallbackGasLimit": 300000,
+        "vrfNumWords": 1
+      }
+    }
   },
   "release": {
-    "publisherAddress": "rREPLACE_WITH_PUBLISHER_ADDRESS",
+    "publisherAddress": "rwy3gizMeRd6WCGGQvFzHSGi9CzaYx5ECT",
     "memoTypeHex": "4D4F4C5452454C45415345",
-    "publisherPublicKey": "BASE64_ED25519_PUBLIC_KEY",
+    "publisherPublicKey": "IPacOgtaDuOkKenO7EEj0T3A1Ei5Oj/yInH2Rxse5Ns=",
     "gateway": "https://ipfs.io/ipfs",
     "requireSignedRelease": true,
     "allowUnsignedDev": false,
@@ -44,7 +159,31 @@
   "discovery": {
     "enabled": true,
     "registryAddress": "rwy3gizMeRd6WCGGQvFzHSGi9CzaYx5ECT",
-    "intervalSeconds": 30
+    "intervalSeconds": 30,
+    "sharedUi": {
+      "enabled": true,
+      "minContributors": 2,
+      "sybil": {
+        "enabled": true,
+        "requireVerifiedAttestation": true,
+        "attestationMaxAgeSeconds": 3600,
+        "minPresenceMessages": 2,
+        "minPresenceSpanSeconds": 60,
+        "presenceBucketSeconds": 60,
+        "minDistinctPresenceBuckets": 2,
+        "identityFieldPaths": [
+          "platformIdentity",
+          "platform_id",
+          "platformId",
+          "ppid",
+          "qeid",
+          "chipId",
+          "chip_id",
+          "measurement"
+        ],
+        "allowUnidentifiedAttestation": false
+      }
+    }
   },
   "channels": {
     "topic/announcements": {
@@ -55,7 +194,12 @@
   "registration": {
     "enabled": true,
     "address": "rwy3gizMeRd6WCGGQvFzHSGi9CzaYx5ECT",
-    "xrp": "0.1"
+    "xrp": "0.1",
+    "mainnet": {
+      "enabled": true,
+      "address": "rwy3gizMeRd6WCGGQvFzHSGi9CzaYx5ECT",
+      "xrp": "0.1"
+    }
   },
   "security": {
     "enforceSignatures": true,
@@ -68,18 +212,102 @@
       "difficulty": 4,
       "salt": "moltbot-pow-v1"
     },
+    "encryption": {
+      "enabled": true,
+      "requireOnPrivate": true,
+      "requireOnGroup": true,
+      "ciphers": [
+        "aes-256-gcm",
+        "nacl-secretbox"
+      ],
+      "allowLegacyNegotiate": false,
+      "handshakeTtlSeconds": 600,
+      "sessionTtlSeconds": 3600,
+      "replayTtlSeconds": 21600,
+      "maxSkewSeconds": 300,
+      "requireSealedStorage": true,
+      "storageKekEnv": "MOLT_ENCRYPTION_STORAGE_KEK",
+      "storageKekCommand": [
+        "./tee/gramine/get-storage-kek.sh"
+      ],
+      "allowEnvKekInProduction": false
+    },
     "attestation": {
       "enabled": true,
-      "verifyCommand": ["./tee/gramine/verify-attestation.sh"],
+      "verifyCommand": [
+        "./tee/gramine/verify-attestation.sh"
+      ],
+      "verifyTimeoutMs": 10000,
       "evidencePath": "./tee/gramine/attestation.json",
       "pccsUrl": "",
+      "bindPublicKey": true,
       "allowedMrenclaves": [],
       "allowedMrsigners": [],
       "minIsvSvn": 0,
-      "maxAgeSeconds": 3600
+      "maxAgeSeconds": 3600,
+      "policy": {
+        "requireKnownTeeType": true,
+        "allowedTeeTypes": [
+          "sgx",
+          "tdx",
+          "sev-snp"
+        ],
+        "teePreferenceOrder": [
+          "sgx",
+          "tdx",
+          "sev-snp"
+        ],
+        "teeProfiles": {
+          "sgx": {
+            "allowedMrenclaves": [],
+            "allowedMrsigners": [],
+            "minIsvSvn": 0
+          },
+          "tdx": {
+            "allowedMrTd": [
+              "a5844e88897b70c318bef929ef4dfd6c7304c52c4bc9c3f39132f0fdccecf3eb5bab70110ee42a12509a31c037288694"
+            ],
+            "allowedMrSeam": [],
+            "allowedRtmr0": [],
+            "allowedRtmr1": [],
+            "allowedRtmr2": [],
+            "allowedRtmr3": [],
+            "minTcbSvn": 1
+          },
+          "sev-snp": {
+            "allowedMeasurement": [
+              "14195fde36852b69f2ac17166ebf3223351b1c34814f110339412652819073e061ed7c47e6e00d02a817aeb4992ce20d"
+            ],
+            "allowedHostData": [],
+            "allowedChipId": [],
+            "minGuestSvn": 1
+          }
+        },
+        "requirePopulatedTeeProfiles": true
+      }
+    },
+    "apiAuth": {
+      "enabled": true,
+      "requireAttestation": true,
+      "cacheTtlSeconds": 3600,
+      "nonceTtlSeconds": 21600,
+      "maxSkewSeconds": 300,
+      "maxEntries": 10000
+    },
+    "gate": {
+      "enabled": true,
+      "requireOnApiSend": true,
+      "requireOnInbound": true,
+      "challengeTtlSeconds": 300,
+      "issuerSigningKeyBase64": "1fDKaGjfMUkvuXNpJhweWbp26HWevJ/1yQGMHHCep7kg9pw6C1oO46Qp6c7sQSPRPcDUSLk6P/IicfZHGx7k2w==",
+      "issuerPublicKeys": [],
+      "codegen": {
+        "maxCodeBytes": 4000,
+        "timeoutMs": 500
+      }
     }
   },
   "logging": {
-    "level": "debug"
+    "level": "info"
   }
 }
